@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>نموذج اعتراض على مخالفة مرورية</title>
+<style>
+:root{--g:#145c4d;--bg:#f4f7f6;--line:#d7e2df;--ink:#18302b}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Tahoma,Arial,sans-serif;color:var(--ink);line-height:1.7}.wrap{max-width:780px;margin:24px auto;padding:0 14px}.hero{background:var(--g);color:#fff;padding:24px;border-radius:18px 18px 0 0}.hero h1{margin:0 0 5px;font-size:24px}.hero p{margin:0;color:#e3f1ed;font-size:13px}.card{background:#fff;border:1px solid var(--line);border-top:0;padding:22px;border-radius:0 0 18px 18px}.notice{background:#fff8df;border:1px solid #ead99d;padding:12px;border-radius:10px;font-size:12px;margin-bottom:18px}.sec{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}.sec:first-of-type{border-top:0;padding-top:0}.sec h2{font-size:16px;margin:0 0 12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}label{display:block;font-weight:bold;font-size:13px;margin-bottom:5px}input,textarea{width:100%;padding:11px;border:1px solid #bdccc8;border-radius:9px;font:inherit;font-size:14px}textarea{min-height:135px;resize:vertical}.check{display:flex;gap:8px;align-items:flex-start;margin:18px 0;font-size:12px}.check input{width:auto;margin-top:6px}.btns{display:flex;gap:10px;flex-wrap:wrap}button{border:0;border-radius:9px;padding:11px 18px;font:inherit;font-weight:bold;cursor:pointer}.primary{background:var(--g);color:#fff}.secondary{background:#eef3f1;color:var(--ink)}#result{display:none;margin-top:20px;border:1px solid var(--line);border-radius:12px;padding:18px}.row{padding:7px 0;border-bottom:1px solid #edf1f0}.row b{display:block;font-size:11px;color:#60736e}.statement{white-space:pre-wrap;background:#f7f9f8;padding:12px;border-radius:8px;margin-top:12px}.privacy{font-size:11px;color:#5c6f6a;margin-top:16px}@media(max-width:620px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.wrap{margin:10px auto}.hero{padding:20px}.card{padding:17px}}@media print{body{background:#fff}.hero,.notice,form,.btns,.privacy{display:none!important}.card{border:0;padding:0}#result{display:block!important;border:0}.wrap{max-width:none;margin:0}}
+</style></head><body><div class="wrap"><div class="hero"><h1>اعتراض على مخالفة مرورية</h1><p>نموذج مبسط لمساعدة المواطن في تجهيز بيانات الاعتراض لعرضها على الموظف.</p></div><div class="card">
+<div class="notice"><b>تنبيه الخصوصية:</b> هذا النموذج لا يرسل بياناتك إلى GitHub أو إلى قاعدة بيانات. تبقى البيانات في هذه الصفحة على جهازك، ويمكنك عرض الملخص للموظف أو طباعته. لا تكتب كلمات مرور أو رموز تحقق.</div>
+<form id="f" autocomplete="off">
+<div class="sec"><h2>بيانات المخالف</h2><div class="grid">
+<div class="full"><label>اسم المخالف *</label><input name="name" required maxlength="150"></div>
+<div><label>رقم الهوية / الإقامة *</label><input name="id" required inputmode="numeric" maxlength="25"></div>
+<div><label>الجنسية *</label><input name="nat" required maxlength="70"></div>
+</div></div>
+<div class="sec"><h2>بيانات المركبة</h2><div class="grid">
+<div><label>أرقام اللوحة *</label><input name="plateN" required maxlength="20"></div>
+<div><label>حروف اللوحة *</label><input name="plateL" required maxlength="30"></div>
+<div class="full"><label>نوع المركبة *</label><input name="vehicle" required maxlength="120"></div>
+</div></div>
+<div class="sec"><h2>بيانات المخالفة</h2><div class="grid">
+<div><label>رقم المخالفة *</label><input name="vioN" required maxlength="60"></div>
+<div><label>تاريخ المخالفة</label><input name="date" type="date"></div>
+<div class="full"><label>مسمى المخالفة *</label><input name="vioT" required maxlength="200"></div>
+<div class="full"><label>موقع المخالفة *</label><input name="loc" required maxlength="300"></div>
+</div></div>
+<div class="sec"><h2>نص الاعتراض</h2><label>أسباب الاعتراض والتفاصيل *</label><textarea name="obj" required maxlength="5000"></textarea></div>
+<label class="check"><input type="checkbox" required><span>أقر بأن البيانات المدخلة صحيحة حسب علمي، وأفهم أن هذا النموذج أداة لتجهيز الاعتراض ولا يمثل تقديمًا رسميًا إلى جهة حكومية.</span></label>
+<div class="btns"><button class="primary" type="submit">تجهيز الاعتراض</button><button class="secondary" type="reset">مسح البيانات</button></div>
+</form>
+<div id="result"><h2>ملخص الاعتراض</h2><div id="rows"></div><h3>أسباب الاعتراض</h3><div class="statement" id="statement"></div><div class="btns" style="margin-top:15px"><button class="primary" onclick="window.print()">طباعة / حفظ PDF</button><button class="secondary" id="copy" type="button">نسخ الملخص</button><button class="secondary" id="edit" type="button">تعديل</button></div></div>
+<p class="privacy">حماية البيانات: لا توجد مكتبات تحليلات أو اتصالات خارجية في الصفحة، ولا يتم تخزين البيانات في Local Storage. عند إغلاق الصفحة تُفقد البيانات غير المحفوظة.</p>
+</div></div>
+<script>
+const f=document.getElementById('f'),res=document.getElementById('result'),rows=document.getElementById('rows'),st=document.getElementById('statement');
+const labels=[['name','اسم المخالف'],['id','رقم الهوية / الإقامة'],['nat','الجنسية'],['plateN','أرقام اللوحة'],['plateL','حروف اللوحة'],['vehicle','نوع المركبة'],['vioN','رقم المخالفة'],['date','تاريخ المخالفة'],['vioT','مسمى المخالفة'],['loc','موقع المخالفة']];
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+f.addEventListener('submit',e=>{e.preventDefault();let d=new FormData(f);rows.innerHTML=labels.map(([k,l])=>'<div class="row"><b>'+l+'</b>'+esc(d.get(k)||'—')+'</div>').join('');st.textContent=d.get('obj')||'';res.style.display='block';f.style.display='none';res.scrollIntoView({behavior:'smooth'})});
+document.getElementById('edit').onclick=()=>{res.style.display='none';f.style.display='block';scrollTo(0,0)};
+document.getElementById('copy').onclick=async()=>{let d=new FormData(f),t=labels.map(([k,l])=>l+': '+(d.get(k)||'—')).join('\n')+'\n\nأسباب الاعتراض:\n'+(d.get('obj')||'');try{await navigator.clipboard.writeText(t);alert('تم نسخ الملخص')}catch(e){alert('تعذر النسخ تلقائيًا؛ استخدم الطباعة أو الحفظ PDF')}};
+f.addEventListener('reset',()=>{res.style.display='none';f.style.display='block'});
+</script></body></html>
