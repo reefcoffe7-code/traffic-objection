@@ -41,8 +41,6 @@ identityNo.addEventListener('input',()=>{identityNo.value=identityNo.value.repla
 function latinDigits(s){return String(s).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d))}
 const months={'يناير':1,'فبراير':2,'مارس':3,'أبريل':4,'ابريل':4,'مايو':5,'يونيو':6,'يوليو':7,'أغسطس':8,'اغسطس':8,'سبتمبر':9,'أكتوبر':10,'اكتوبر':10,'نوفمبر':11,'ديسمبر':12};
 function parseArabicDate(s){s=latinDigits(s).trim();let m=s.match(/^(\d{1,2})[\/\- ](\d{1,2})[\/\- ](\d{4})$/);if(m){let d=+m[1],mo=+m[2],y=+m[3];if(d>0&&d<32&&mo>0&&mo<13)return y+'-'+String(mo).padStart(2,'0')+'-'+String(d).padStart(2,'0')}let p=s.split(/\s+/);if(p.length===3&&months[p[1]]){let d=+p[0],y=+p[2],mo=months[p[1]];if(d>0&&d<32&&y>1900)return y+'-'+String(mo).padStart(2,'0')+'-'+String(d).padStart(2,'0')}return ''}
-for(let i=1;i<=4;i++){let n=document.getElementById('nativeDate'+i),h=document.getElementById('dateIso'+i),b=document.querySelector('[data-date="'+i+'"]');b.addEventListener('click',()=>{if(n.showPicker)n.showPicker();else n.click()});n.addEventListener('change',()=>{h.value=n.value||'';b.textContent=n.value?arGregorian(n.value)+' 📅':'يوم شهر سنة 📅'})}
-
 const arDigits=s=>String(s).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
 function arGregorian(v){if(!v)return 'يوم شهر سنة';let d=new Date(v+'T12:00:00');return new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{day:'numeric',month:'long',year:'numeric'}).format(d)}
 function arHijri(v){if(!v)return 'يوم شهر سنة هـ';let d=new Date(v+'T12:00:00');return new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura',{day:'numeric',month:'long',year:'numeric'}).format(d)}
