@@ -4,102 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>لوحة الموظف — الاعتراضات</title>
-<link rel="stylesheet" href="employee.css?v=2">
+<link rel="stylesheet" href="employee.css?v=4">
 </head>
 <body>
 <div class="shell">
-  <header class="topbar">
-    <div><h1>لوحة الموظف — الاعتراضات</h1><p>وصول خاص للموظف المصرح له</p></div>
-    <button id="logout" class="secondary hidden">تسجيل الخروج</button>
-  </header>
-
-  <section id="authPanel" class="panel login">
-    <h2>دخول الموظف</h2>
-    <label for="email">البريد الإلكتروني</label>
-    <input id="email" type="email" autocomplete="username">
-    <label for="password">كلمة المرور</label>
-    <input id="password" type="password" autocomplete="current-password" minlength="12">
-    <div style="display:flex;gap:8px;margin-top:14px"><button id="login" class="primary">دخول</button><button id="setup" class="secondary">إنشاء أول حساب</button></div>
-    <div id="authMessage" class="message" aria-live="polite"></div>
-  </section>
-
-  <main id="app" class="hidden">
-    <section id="listPanel" class="panel">
-      <div class="toolbar">
-        <input id="search" placeholder="بحث برقم الاعتراض أو الهوية أو المخالفة أو الاسم">
-        <select id="filter"><option value="">كل الحالات</option><option value="new">جديد</option><option value="valid">صحيحة</option><option value="cancelled">إلغاء</option><option value="code_edit">تعديل رمز</option><option value="transfer">تحويل</option><option value="letter">خطاب</option></select>
-        <button id="refresh" class="secondary">تحديث</button>
-      </div>
-      <div id="requestList"></div>
-    </section>
-
-    <section id="detailView" class="panel sheet-wrap hidden">
-      <button id="back" class="secondary back">العودة إلى قائمة الاعتراضات</button>
-      <article class="employee-paper">
-        <header class="legal">
-          <h2>((المادة الخامسة والسبعون من نظام المرور))</h2>
-          <p>للمخالف حق الاعتراض أمام المحكمة المختصة استنادًا للمادة (٧٥) من نظام المرور، ولا ينظر في المخالفة التي مضى على تحريرها أكثر من ثلاثين يومًا.</p>
-        </header>
-
-        <table class="form-table">
-          <tr><th>مذكرة اعتراض بتاريخ</th><td id="memoDate"></td><th>رقم الاعتراض</th><td id="refNo"></td></tr>
-          <tbody id="personRows"></tbody>
-        </table>
-
-        <div class="section-title">بيانات المخالفات</div>
-        <table class="form-table">
-          <thead><tr><th class="center">م</th><th>رقم المخالفة</th><th>نوع المخالفة</th><th>تاريخ المخالفة</th><th>موقع المخالفة</th></tr></thead>
-          <tbody id="violationRows"></tbody>
-        </table>
-
-        <div class="section-title">بيانات المركبة</div>
-        <table class="form-table"><tbody id="vehicleRows"></tbody></table>
-
-        <div class="section-title">البيانات الإسعافية</div>
-        <table class="form-table"><tbody id="medicalRows"></tbody></table>
-
-        <section class="reason">
-          <p><strong>سعادة رئيس الهيئة المرورية بمحافظة الطائف:</strong></p>
-          <p>السلام عليكم ورحمة الله وبركاته، أتقدم إليكم بالاعتراض على المخالفة المذكورة بسبب:</p>
-          <div id="reasonText" class="reason-text"></div>
-        </section>
-
-        <section class="sign-row">
-          <div><strong>الاسم:</strong><br><span id="citizenName"></span></div>
-          <div><strong>رقم الجوال:</strong><br><span id="citizenPhone"></span></div>
-          <div><strong>توقيع المواطن:</strong><img id="citizenSignature" class="citizen-sign hidden" alt="توقيع المواطن"></div>
-        </section>
-
-        <section class="decision-box">
-          <div class="decision-grid">
-            <div class="decision-options">
-              <label><input type="radio" name="employeeAction" value="cancelled"> إلغاء</label>
-              <label><input type="radio" name="employeeAction" value="valid"> صحيحة</label>
-              <label><input type="radio" name="employeeAction" value="code_edit"> تعديل رمز</label>
-              <label><input type="radio" name="employeeAction" value="transfer"> تحويل</label>
-              <label><input type="radio" name="employeeAction" value="letter"> خطاب</label>
-            </div>
-            <div class="decision-fields">
-              <label for="violationNotes">حيثيات المخالفة</label>
-              <textarea id="violationNotes" maxlength="5000"></textarea>
-              <label for="actionTaken">متخذ الإجراء</label>
-              <input id="actionTaken" maxlength="200">
-              <label>توقيع الموظف الإلكتروني</label>
-              <div class="employee-sign"><canvas id="employeeSignature" width="700" height="160"></canvas></div>
-              <button type="button" id="clearEmployeeSignature" class="secondary" style="margin-top:4px">مسح التوقيع</button>
-            </div>
-          </div>
-        </section>
-      </article>
-
-      <div class="detail-actions">
-        <button id="save" class="primary">حفظ وإرسال للجنة</button>
-        <button id="print" class="secondary">طباعة صفحة واحدة</button>
-      </div>
-      <div id="saveStatus" class="status-line" aria-live="polite"></div>
-    </section>
-  </main>
-</div>
-<script type="module" src="employee.js?v=2"></script>
-</body>
-</html>
+<header class="topbar"><div><h1>لوحة الموظف — الاعتراضات</h1><p>وصول خاص للموظف المصرح له</p></div><button id="logout" class="secondary hidden">تسجيل الخروج</button></header>
+<section id="authPanel" class="panel login"><h2>دخول الموظف</h2><label for="email">البريد الإلكتروني</label><input id="email" type="email" autocomplete="username"><label for="password">كلمة المرور</label><input id="password" type="password" autocomplete="current-password" minlength="12"><div class="login-actions"><button id="login" class="primary">دخول</button><button id="setup" class="secondary">إنشاء أول حساب</button></div><div id="authMessage" class="message"></div></section>
+<main id="app" class="hidden"><section id="listPanel" class="panel"><div class="toolbar"><input id="search" placeholder="بحث برقم الاعتراض أو الهوية أو المخالفة أو الاسم"><select id="filter"><option value="">كل الحالات</option><option value="new">جديد</option><option value="valid">صحيحة</option><option value="cancelled">إلغاء</option><option value="code_edit">تعديل رمز</option><option value="transfer">تحويل</option><option value="letter">خطاب</option></select><button id="refresh" class="secondary">تحديث</button></div><div id="requestList"></div></section>
+<section id="detailView" class="panel detail hidden"><button id="back" class="secondary back">العودة إلى قائمة الاعتراضات</button><article class="employee-paper">
+<header class="gov-head"><div>المملكة العربية السعودية<br>وزارة الداخلية<br>الأمن العام<br>الإدارة العامة للمرور</div><div class="seal"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/wAALCABHALQBAREA/8QAGgABAAMBAQEAAAAAAAAAAAAAAAEDBAIFBv/EADAQAAICAgAEAwgCAQUAAAAAAAECAAMEEQUSITETQVEGFCIjMmFxgRWhkUJicoLR/9oACAEBAAA/APuoiV33149RstYKg7kypsysCpgeZbDoETnH4hTfa1QJV18mGt/iaLbVqr536L2nn16XKQKTrxjsb9RPSc9CFI5j23KxeqbV2HOo23pKX4ljpULeYlCdb12mmq1Lqw6MGB7ETLmPW+k38VbqTOuHsTjsWJJDsNn8zPlX13naOfkuN67EzvCte3KcsSQUBA9JrfIqrtWpnUO3YE9TDX1qpZnAUee4W5Gt8MHba5v1LIiIiJkzKvGspRiRWx6685n/AItBciKtgpXrvxD/AFNB4ZjeIlurC6fSS5nOQbsgGhKmUN9TMOgH/suqwqagOUMdNzbY76znJ8VLlsrqNgCkaXuDKUxGzLWsy62rXWgnN9X51LP4ygAhXtUHuA3SMfFq4dSy0ixlJ3re9StcU5lpvuD1r0Cr2J15mbUqREZVHRiSf3Mn8VjDoOcKR1Xm7nyM0U41dBBTewvLsmYnwUzcqyy52Vqn0gTpr9zs8JqKkG63RJPUjvOsLEanIsd3sYABF59a19tTbERERERJiJG5DWKvcgSBah7MD+50CDJiJAABJAGz3iIiIiIkxImfMzKsKsWXHSk8o/M7FpdAydd9txqw72yj01MVuZXVaUZ7H0ddF6b9JzfehqZhQpbX+syge78oJqatvMo2pUucviBKct9k9OcbB/cvr4lkUk+8NWy/bpL043iEHnsC677M24uTVl0i2lg6HsRLoiRERESYkEgdzMmVxCjFHzG+LyUdSZ4XEmbjArFp93xkbmIY6LTf/KUVVhVb4UGvhBMj+YQqSqWn/oZ5OT7XcOVmRqbWPY6WWY/G6smo+Fg38rDWwombO4ri1A+842QNjW9amav2gwTypVWwYnpzLsyLMlrQ/iMxYnoOUiVWLzUlSysD30es+j4LmYvDeH10Nd8sH4SenfynuU5NNw3XYrD7GWyZERERJieVxfh2Vk/Nw8lq3A+g/SZ5VluRWg95pRblPxcx2NeolI4g5B8NqB99dZRdZdkv4XjFUJ7jp0kcawL7sBKsW1ioO2G+rT5tcSutxVelofz0u57fDqrMa2q18gjFQ9UccvT9zPm4l9qF8jIL1MeZQi808dsZLW5cZbWbeuq6nr1JlcPw0rLMb3bm5e/Kv3mmoWW0m19j1GhL1rRkb4VOgCoPn9ukswaaznivHWxToEmliRv0n1uHRZSnzLGcnyPlNMiIiTERE4toqvXltrVx9xPKyPZvEs61M1Z9O4nm3ezuZUD4Xh2D/H9St8HIrXmtx7QVPZSZTdWbaiCAH5unO3UD8+sLiY2yGoRwe3OSTuW1YHwMtNKJ/wASf8S6jAsStBVUKhzfHy9Sf6nJ4ZYbD8hnYk7Oj2lycEyrWB8OulQNDm7mbKfZ2gEHJte3/aPhE9WminHTloqWseiiWREiIkxERJkSZE5equz660b8ruVNg4jEE49e/UDUuVFX6VA/AkhQOwkyIiIiJESYiJMRERERESIiIiJE/9k=" alt="شعار الجهة"></div><div>إدارة الهيئات المرورية<br>الهيئة المرورية بمحافظة الطائف</div></header>
+<header class="legal"><h2>((المادة الخامسة والسبعون من نظام المرور))</h2><p>للمخالف حق الاعتراض أمام المحكمة المختصة استنادًا للمادة (٧٥) من نظام المرور الصادر بالمرسوم الملكي رقم (م/٨٥) وتاريخ ٢٦/١٠/١٤٢٨هـ، ولا ينظر في المخالفة التي مضى على تحريرها أكثر من ثلاثين يومًا.</p></header>
+<section class="doc-table memo-table"><div class="doc-cell label-cell">مذكرة اعتراض بتاريخ</div><div class="doc-cell" id="memoDate"></div></section>
+<section class="doc-table person-table"><div class="doc-cell label-cell">الاسم</div><div class="doc-cell" id="citizenNameTop"></div><div class="doc-cell label-cell">رقم الهوية/إقامة</div><div class="doc-cell" id="identityNo"></div><div class="doc-cell label-cell nationality-label">الجنسية</div><div class="doc-cell nationality-input" id="nationality"></div></section>
+<section class="violations"><div class="violations-head"><div></div><div>رقم المخالفة</div><div>نوع المخالفة</div><div>تاريخ المخالفة</div><div>موقع المخالفة</div></div><div id="violationRows"></div><div class="other-back">☐ أخرى خلف الورقة.</div></section>
+<div class="section-title">بيانات المركبة</div><section class="doc-table vehicle-table"><div class="doc-cell label-cell">رقم اللوحة</div><div class="doc-cell" id="plateNo"></div><div class="doc-cell label-cell">نوع المركبة</div><div class="doc-cell" id="vehicleType"></div><div class="doc-cell label-cell">رقم القرار الإلكتروني</div><div class="doc-cell" id="decisionNo"></div><div class="doc-cell label-cell">التاريخ</div><div class="doc-cell" id="decisionDate"></div></section>
+<div class="emergency-row">حالة إسعافية طارئة <span id="emergencyFlag">☐</span></div><section class="doc-table medical-table"><div class="doc-cell label-cell">اسم المستشفى</div><div class="doc-cell" id="hospitalName"></div><div class="doc-cell label-cell">التاريخ</div><div class="doc-cell" id="hospitalDate"></div><div class="doc-cell label-cell">اسم المريض</div><div class="doc-cell" id="patientName"></div><div class="doc-cell label-cell">رقم السجل</div><div class="doc-cell" id="recordNo"></div></section>
+<section class="appeal"><p><strong>سعادة رئيس الهيئة المرورية بمحافظة الطائف:</strong></p><p>السلام عليكم ورحمة الله وبركاته، أتقدم إليكم بالاعتراض على المخالفة المذكورة بسبب:</p><div id="reasonText" class="reason-lines"></div></section>
+<section class="citizen-sign-row"><div><strong>الاسم:</strong><br><span id="citizenName"></span></div><div><strong>رقم الجوال:</strong><br><span id="citizenPhone"></span></div><div><strong>التوقيع:</strong><img id="citizenSignature" class="citizen-sign hidden" alt="توقيع المواطن"></div></section>
+<section class="employee-section"><div class="decision-options"><label><input type="radio" name="employeeAction" value="cancelled"> إلغاء</label><label><input type="radio" name="employeeAction" value="valid"> صحيحة</label><label><input type="radio" name="employeeAction" value="code_edit"> تعديل رمز</label><label><input type="radio" name="employeeAction" value="transfer"> تحويل</label><label><input type="radio" name="employeeAction" value="letter"> خطاب</label></div><label class="rationale-label" for="violationNotes">حيثيات المخالفة</label><textarea id="violationNotes" maxlength="5000"></textarea><div class="taken-row"><label for="actionTaken">متخذ الإجراء:</label><input id="actionTaken" maxlength="200"></div><div class="employee-sign-row"><span>توقيع الموظف الإلكتروني:</span><div class="employee-sign"><canvas id="employeeSignature" width="700" height="150"></canvas></div><button type="button" id="clearEmployeeSignature" class="secondary">مسح التوقيع</button></div></section>
+</article><div class="detail-actions"><button id="save" class="primary">حفظ وإرسال للجنة</button><button id="print" class="secondary">طباعة صفحة واحدة</button></div><div id="saveStatus" class="status-line"></div></section></main></div>
+<script type="module" src="employee.js?v=4"></script>
+</body></html>
