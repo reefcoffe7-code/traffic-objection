@@ -1,78 +1,99 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>مذكرة اعتراض</title>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#f2f2f2;color:#111;font-family:"Arial","Tahoma",sans-serif}.paper{width:820px;max-width:100%;margin:8px auto;background:white;padding:10px 12px 14px;border:1px solid #222}.article{text-align:center;line-height:1.35}.article h1{font-size:18px;text-decoration:underline;margin:0;font-weight:700}.article p{font-size:13px;margin:1px 4px 5px}.box{border:1.5px solid #333}.r{display:grid;border-bottom:1.3px solid #333}.r:last-child{border-bottom:0}.c{border-left:1.3px solid #333;min-height:36px;padding:2px 5px;display:flex;align-items:center;gap:5px}.c:last-child{border-left:0}.c b{white-space:nowrap}.c input{border:1px solid #b9c6cc;border-radius:4px;outline:0;background:#fff;font:inherit;min-width:0;width:100%;padding:7px}.memo{grid-template-columns:1.05fr 1fr}.person{grid-template-columns:1fr 1fr}.vhead,.vrow{grid-template-columns:28px 1.12fr 1fr .9fr 1.12fr}.vhead .c{justify-content:center;font-weight:bold;font-size:13px}.vrow .c{min-height:31px}.vrow input{text-align:center}.other{height:30px;padding:3px 12px;border-bottom:1.3px solid #333;text-align:right}.section{height:38px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:18px;background:#f1f1f1;border-bottom:1.3px solid #333}.veh1{grid-template-columns:1.05fr 1fr 1.35fr}.veh2{grid-template-columns:1.05fr 1fr 1.35fr}.plate{display:flex;gap:2px;direction:ltr}.plate input{width:29px!important;min-width:29px;height:27px;border:1px solid #777!important;text-align:center;padding:0}.emergency{height:42px;font-size:18px;background:#f1f1f1;display:flex;align-items:center;justify-content:center;border-bottom:1.3px solid #333;font-weight:bold}.hospital{grid-template-columns:1fr 1fr}.letter{font-size:14px;line-height:1.55;padding:5px 2px 0}.letter p{margin:0}.letter textarea{width:100%;height:210px;border:1px solid #b9c6cc;border-radius:5px;outline:0;resize:vertical;font:inherit;font-size:16px;line-height:34px;padding:4px 8px;background:repeating-linear-gradient(to bottom,#fff 0,#fff 32px,#999 33px,#fff 34px)}.foot{display:grid;grid-template-columns:.9fr 1fr 1.25fr;gap:0;border:1px solid #333;align-items:end;padding:5px 2px 0;font-weight:bold}.foot>div{padding:10px;border-left:1px solid #333;min-height:110px}.foot>div:last-child{border-left:0}.foot input{width:100%;border:1px solid #b9c6cc;border-radius:4px;font:inherit;padding:8px;margin-top:8px}.signature{position:relative}.sigcanvas{position:absolute;bottom:20px;right:8px;width:210px;height:70px;border:1px solid #b9c6cc;border-radius:4px}.sigcanvas canvas{width:100%;height:100%;touch-action:none}.clear{font-size:10px;padding:3px 7px;border:1px solid #aaa;background:#eee;position:absolute;bottom:0;right:55px}.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin:16px 25px 0}button{font:inherit;border:0;border-radius:4px;padding:12px 16px;font-weight:bold;font-size:16px}.primary{background:#078a43;color:#fff}.secondary{background:#777;color:#fff}.dateCtl{width:100%;display:flex;gap:6px;align-items:center;position:relative}.dateCtl button{flex:1;background:#fff;color:#444;border:1px solid #b9c6cc;border-radius:5px;padding:9px;font-size:13px;pointer-events:none}.dateCtl select{max-width:82px;border:1px solid #b9c6cc;border-radius:5px;padding:8px;background:#fff;font:inherit}.dateCtl .nativeTap{position:absolute;left:0;top:0;bottom:0;width:calc(100% - 88px);height:100%;opacity:.001;z-index:5;cursor:pointer}.dateCtl.simpleDate{display:grid;grid-template-columns:1fr;gap:3px}.dateCtl.simpleDate input[type=date]{position:static;opacity:1;width:100%;height:auto;pointer-events:auto;border:1px solid #b9c6cc;border-radius:5px;padding:9px;background:#fff;font:inherit}.dateCtl.simpleDate span{font-size:11px;color:#555}.status{font-size:13px;margin-top:9px;font-weight:bold;text-align:center;min-height:22px}.hp{position:absolute;left:-9999px}@media(max-width:760px){.paper{width:100%;margin:0;padding:5px}.article h1{font-size:15px}.article p{font-size:11px}.vhead,.vrow{grid-template-columns:24px 1.1fr 1fr .95fr 1.1fr;font-size:10px}.c{padding:2px}.c b{font-size:11px}.plate input{width:25px!important;min-width:25px}.letter{font-size:12px}.foot{gap:5px;font-size:12px}}@media(max-width:760px){
-html,body{width:100%;overflow-x:hidden}
-.paper{width:100%;max-width:none;margin:0;padding:10px;border:0;box-shadow:none}
-.article h1{font-size:20px}.article p{font-size:14px;line-height:1.7}
-.memo,.person,.veh2,.hospital{grid-template-columns:1fr}
-.vhead{display:none}.vrow{grid-template-columns:34px 1fr;gap:0}.vrow .c{min-height:54px;border-bottom:1px solid #bbb}.vrow .c:nth-child(2)::before{content:"رقم المخالفة";font-weight:bold;display:block;min-width:95px}.vrow .c:nth-child(3)::before{content:"نوع المخالفة";font-weight:bold;display:block;min-width:95px}.vrow .c:nth-child(4)::before{content:"تاريخ المخالفة";font-weight:bold;display:block;min-width:95px}.vrow .c:nth-child(5)::before{content:"موقع المخالفة";font-weight:bold;display:block;min-width:95px}.vrow .c:not(:first-child){grid-column:2}
-.c{font-size:15px;min-height:52px;padding:6px}.c input{font-size:16px;padding:10px}
-.section,.emergency{font-size:19px;height:48px}
-.plate input{width:42px!important;min-width:42px;height:42px;font-size:18px}
-.letter{font-size:15px}.letter textarea{height:220px;font-size:16px}
-.foot{grid-template-columns:1fr;gap:0}.foot>div{border-left:0;border-bottom:1px solid #333;min-height:90px;font-size:16px}
-.signature{min-height:130px!important}.sigcanvas{width:240px;height:85px}
-.actions{grid-template-columns:1fr;gap:9px;margin:14px 0}.actions button{font-size:17px;padding:14px}
-}
-@media print{@page{size:A4;margin:8mm}body{background:#fff}.paper{width:100%;margin:0;padding:0}.actions,.status,.clear{display:none}}
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="نموذج اعتراض إلكتروني على مخالفة مرورية">
+<title>مذكرة اعتراض على مخالفة مرورية</title>
+<link rel="stylesheet" href="citizen.css?v=2">
+</head>
+<body>
+<main class="page four-only">
+  <header class="legal">
+    <h1>((المادة الخامسة والسبعون من نظام المرور))</h1>
+    <p>للمخالف حق الاعتراض أمام المحكمة المختصة استنادًا للمادة (٧٥) من نظام المرور الصادر بالمرسوم الملكي رقم (م/٨٥) وتاريخ ٢٦/١٠/١٤٢٨هـ، ولا ينظر في المخالفة التي مضى على تحريرها أكثر من ثلاثين يومًا.</p>
+  </header>
 
-:root{--brand:#174f43;--brand2:#23695a;--gold:#a8843f;--cream:#f7f2e8;--soft:#f7faf9}
-body{background:linear-gradient(180deg,#f5f1e9 0,#f7faf9 220px,#eef4f2 100%);color:#17332d}
-.paper{border:1px solid #d9e3df!important;border-radius:18px!important;box-shadow:0 12px 35px rgba(23,79,67,.10)!important;overflow:hidden}
-.article{background:linear-gradient(135deg,#fff,#f7f2e8);border-bottom:3px solid var(--gold);padding:14px!important}
-.article h1{color:var(--brand);text-decoration:none!important}
-.box{border-color:#cbdad5!important;border-radius:12px;overflow:hidden}
-.section{background:linear-gradient(90deg,#f2eadb,#f8f5ee)!important;color:var(--brand);border-color:#d8c9aa!important}
-.c{border-color:#d9e3df!important}.c b{color:#214e44}
-.c input,.letter textarea,.foot input,.dateCtl button,.dateCtl select{border-color:#c6d6d1!important;background:#fff!important}
-.c input:focus,.foot input:focus,.letter textarea:focus{border-color:var(--brand2)!important;box-shadow:0 0 0 3px rgba(35,105,90,.10)!important}
-.primary{background:linear-gradient(135deg,var(--brand),var(--brand2))!important;color:#fff!important;box-shadow:0 5px 14px rgba(23,79,67,.18)}
-.secondary{background:#eef3f1!important;color:var(--brand)!important;border:1px solid #cbdad5!important}
-.actions button{transition:.18s;cursor:pointer}.actions button:hover{transform:translateY(-1px)}
-.sigcanvas{background:#fffdf8!important;border:1px dashed #aebfba!important}
-@media print{body{background:#fff!important}.paper{box-shadow:none!important;border-radius:0!important;border-color:#222!important}.article{background:#fff!important;border-bottom:1px solid #222}.section{background:#f1f1f1!important;color:#111!important}}
-.foot{grid-template-columns:1fr 1.25fr!important}.foot .footerName{grid-column:1/-1!important}.foot .footerPhone{grid-column:1!important}.foot .signature{grid-column:2!important}.sigcanvas{width:calc(100% - 16px)!important;max-width:260px!important}@media(max-width:760px){.foot{grid-template-columns:1fr 1fr!important}.foot .footerName{grid-column:1/-1!important}.foot .footerPhone{grid-column:1!important}.foot .signature{grid-column:2!important}}
-.foot{display:grid!important;grid-template-columns:1fr 1fr 1.15fr!important;direction:rtl!important;align-items:stretch!important}.foot .footerName{grid-column:1!important;grid-row:1!important}.foot .footerPhone{grid-column:2!important;grid-row:1!important}.foot .signature{grid-column:3!important;grid-row:1!important;min-height:110px!important}.foot .sigcanvas{width:calc(100% - 16px)!important;max-width:none!important}@media(max-width:760px){.foot{grid-template-columns:1fr 1fr 1.15fr!important}.foot .footerName{grid-column:1!important;grid-row:1!important}.foot .footerPhone{grid-column:2!important;grid-row:1!important}.foot .signature{grid-column:3!important;grid-row:1!important}.foot>div{min-width:0!important;padding:5px!important}.foot input{font-size:12px!important;padding:6px!important}.foot .sigcanvas{right:4px!important;width:calc(100% - 8px)!important;height:64px!important}}.foot .signature>b{display:block!important;position:relative!important;z-index:10!important;color:#17332d!important;font-size:14px!important;line-height:20px!important;margin:0 0 4px 0!important;background:transparent!important}.foot .signature .sigcanvas{top:30px!important;bottom:auto!important}.foot .signature .clear{bottom:2px!important}@media(max-width:760px){.foot .signature>b{font-size:12px!important;line-height:18px!important}.foot .signature .sigcanvas{top:26px!important;height:58px!important}}</style></head><body><main class="paper">
-<div class="article"><h1>((المادة الخامسة والسبعون من نظام المرور))</h1><p>للمخالف حق الاعتراض أمام المحكمة المختصة استناداً للمادة (75) من نظام المرور الصادر بالمرسوم الملكي رقم (م / 85) وتاريخ 26 / 10 / 1428هـ ولا ينظر بالمخالفة التي مضى على تحريرها أكثر من ثلاثين يوماً.</p></div>
-<form id="f" autocomplete="off"><div class="box">
-<div class="r memo"><div class="c"><b>مذكرة اعتراض تاريخ</b><div class="dateCtl simpleDate"><input name="memoDate" id="nativeMemo" type="date" required><span id="labelMemo">يوم شهر سنة</span></div></div><div class="c"></div></div>\n<div class="r person"><div class="c"><b>الاسم</b><input name="name" id="arabicName" required pattern="[ء-ي ]{2,150}" title="الاسم باللغة العربية فقط" placeholder="الاسم باللغة العربية فقط"></div><div class="c"><b>رقم الهوية/إقامة</b><input name="id" id="identityNo" required inputmode="numeric" maxlength="10" minlength="10" pattern="[0-9٠-٩]{10}" placeholder="١٠ أرقام فقط"></div></div><div class="r" style="grid-template-columns:1fr"><div class="c"><b style="min-width:90px">الجنسية</b><input name="nat" required placeholder="أدخل الجنسية"></div></div>
-<div class="r vhead"><div class="c"></div><div class="c">رقم المخالفة</div><div class="c">نوع المخالفة</div><div class="c">تاريخ المخالفة</div><div class="c">موقع المخالفة</div></div>
-<div class="r vrow"><div class="c">1</div><div class="c"><input name="vioN1" inputmode="numeric" maxlength="10" minlength="10" pattern="[0-9٠-٩]{10}" required placeholder="١٠ أرقام فقط"></div><div class="c"><input name="vioT1" required></div><div class="c"><div class="dateCtl"><select id="cal1"><option value="g">ميلادي</option><option value="h">هجري</option></select><button type="button" id="btn1">يوم شهر سنة 📅</button><input name="date1" id="dateIso1" type="hidden"><input id="nativeDate1" class="nativeTap" type="date" required></div></div><div class="c"><input name="loc1" required></div></div><div class="r vrow"><div class="c">2</div><div class="c"><input name="vioN2" inputmode="numeric" maxlength="10" minlength="10" pattern="[0-9٠-٩]{10}"  placeholder="١٠ أرقام فقط"></div><div class="c"><input name="vioT2" ></div><div class="c"><div class="dateCtl"><select id="cal2"><option value="g">ميلادي</option><option value="h">هجري</option></select><button type="button" id="btn2">يوم شهر سنة 📅</button><input name="date2" id="dateIso2" type="hidden"><input id="nativeDate2" class="nativeTap" type="date"></div></div><div class="c"><input name="loc2" ></div></div><div class="r vrow"><div class="c">3</div><div class="c"><input name="vioN3" inputmode="numeric" maxlength="10" minlength="10" pattern="[0-9٠-٩]{10}"  placeholder="١٠ أرقام فقط"></div><div class="c"><input name="vioT3" ></div><div class="c"><div class="dateCtl"><select id="cal3"><option value="g">ميلادي</option><option value="h">هجري</option></select><button type="button" id="btn3">يوم شهر سنة 📅</button><input name="date3" id="dateIso3" type="hidden"><input id="nativeDate3" class="nativeTap" type="date"></div></div><div class="c"><input name="loc3" ></div></div><div class="r vrow"><div class="c">4</div><div class="c"><input name="vioN4" inputmode="numeric" maxlength="10" minlength="10" pattern="[0-9٠-٩]{10}"  placeholder="١٠ أرقام فقط"></div><div class="c"><input name="vioT4" ></div><div class="c"><div class="dateCtl"><select id="cal4"><option value="g">ميلادي</option><option value="h">هجري</option></select><button type="button" id="btn4">يوم شهر سنة 📅</button><input name="date4" id="dateIso4" type="hidden"><input id="nativeDate4" class="nativeTap" type="date"></div></div><div class="c"><input name="loc4" ></div></div>
-<div class="other"><label><input type="checkbox" name="otherBack"> أخرى خلف الورقة.</label></div>
-<div class="section">بيانات المركبة</div>
-<div class="r" style="grid-template-columns:1fr"><div class="c"><b style="min-width:110px">رقم اللوحة</b><div><div class="plate" id="plateNums"><input maxlength="1" required><input maxlength="1" required><input maxlength="1" required><input maxlength="1" required></div><div class="plate" id="plateLetters"><input maxlength="1" required><input maxlength="1" required><input maxlength="1" required></div></div></div></div>
-<div class="r" style="grid-template-columns:1fr"><div class="c" style="min-height:58px"><b style="min-width:110px">نوع المركبة</b><input name="vehicle" required placeholder="أدخل نوع المركبة" style="font-size:16px;padding:10px"></div></div>
-<div class="r veh2"><div class="c"><b>رقم القرار الإلكتروني</b><span style="font-size:12px">يُولد تلقائيًا عند اعتماد القرار</span></div><div class="c"><b>التاريخ</b><span style="font-size:12px">يُسجل تلقائيًا عند اعتماد القرار</span></div><div class="c"></div></div>
-<div class="emergency"><label><input type="checkbox" name="emergency"> حالة إسعافية طارئة</label></div>
-<div class="r hospital"><div class="c"><b>اسم المستشفى</b><input name="hospital"></div><div class="c"><b>التاريخ</b><div class="dateCtl simpleDate"><input name="hospitalDate" id="nativeHospital" type="date" ><span id="labelHospital">يوم شهر سنة</span></div></div></div>
-<div class="r hospital"><div class="c"><b>اسم المريض</b><input name="patient"></div><div class="c"><b>رقم السجل</b><input name="recordNo" id="recordNo" inputmode="numeric" maxlength="10" minlength="10" pattern="[0-9٠-٩]{10}" placeholder="١٠ أرقام فقط"></div></div>
-</div>
-<div class="letter"><p>سعادة رئيس الهيئة المرورية بمحافظة الطائف :</p><p>السلام عليكم ورحمة الله وبركاته : أتقدم إليكم بالاعتراض على المخالفة المذكورة بسبب:</p><textarea name="obj" required maxlength="5000" placeholder="اكتب أسباب الاعتراض هنا..."></textarea></div>
-<div class="foot"><div class="footerName"><b>الاسم:</b><input name="footerName" id="footerArabicName" required pattern="[ء-ي ]{2,150}" title="الاسم باللغة العربية فقط"></div><div class="footerPhone"><b>رقم الجوال:</b><input name="phone" id="phoneNo" type="tel" required inputmode="numeric" maxlength="10" minlength="10" pattern="[0-9٠-٩]{10}" placeholder="١٠ أرقام فقط"></div><div class="signature"><b>التوقيع:</b><div class="sigcanvas"><canvas id="sig" width="500" height="180"></canvas></div><button type="button" id="clear" class="clear">مسح</button></div></div>
-<input class="hp" name="website" tabindex="-1">
-<div class="actions"><button class="primary" id="send" type="submit">إرسال الاعتراض</button><button class="secondary" type="reset" style="background:#e52d32">مسح البيانات</button><button class="secondary" type="button" onclick="window.print()">طباعة النموذج</button></div><div id="status" class="status"></div></form></main>
-<script>
-const f=document.getElementById('f'),status=document.getElementById('status'),send=document.getElementById('send');
-const identityNo=document.getElementById('identityNo'),recordNo=document.getElementById('recordNo');
-identityNo.addEventListener('input',()=>{identityNo.value=identityNo.value.replace(/[^0-9٠-٩]/g,'').slice(0,10)});
-function arabicTen(el){if(!el)return;el.addEventListener('input',()=>{el.value=el.value.replace(/[^0-9٠-٩]/g,'').slice(0,10)})}
-for(let i=1;i<=4;i++)arabicTen(document.querySelector('[name="vioN'+i+'"]'));
-arabicTen(document.getElementById('recordNo'));arabicTen(document.getElementById('decisionNo'));arabicTen(document.getElementById('phoneNo'));recordNo.addEventListener('input',()=>{recordNo.value=recordNo.value.replace(/[^0-9٠-٩]/g,'').slice(0,10)});
-function arabicNameOnly(el){if(!el)return;el.addEventListener('input',()=>{el.value=el.value.replace(/[^ء-ي\s]/g,'').replace(/\s{2,}/g,' ')})}arabicNameOnly(document.getElementById('arabicName'));arabicNameOnly(document.getElementById('footerArabicName'));
-function latinDigits(s){return String(s).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d))}
-const months={'يناير':1,'فبراير':2,'مارس':3,'أبريل':4,'ابريل':4,'مايو':5,'يونيو':6,'يوليو':7,'أغسطس':8,'اغسطس':8,'سبتمبر':9,'أكتوبر':10,'اكتوبر':10,'نوفمبر':11,'ديسمبر':12};
-function parseArabicDate(s){s=latinDigits(s).trim();let m=s.match(/^(\d{1,2})[\/\- ](\d{1,2})[\/\- ](\d{4})$/);if(m){let d=+m[1],mo=+m[2],y=+m[3];if(d>0&&d<32&&mo>0&&mo<13)return y+'-'+String(mo).padStart(2,'0')+'-'+String(d).padStart(2,'0')}let p=s.split(/\s+/);if(p.length===3&&months[p[1]]){let d=+p[0],y=+p[2],mo=months[p[1]];if(d>0&&d<32&&y>1900)return y+'-'+String(mo).padStart(2,'0')+'-'+String(d).padStart(2,'0')}return ''}
-const arDigits=s=>String(s).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
-function arGregorian(v){if(!v)return 'يوم شهر سنة';let d=new Date(v+'T12:00:00');return new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{day:'numeric',month:'long',year:'numeric'}).format(d)}
-function arHijri(v){if(!v)return 'يوم شهر سنة هـ';let d=new Date(v+'T12:00:00');return new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura',{day:'numeric',month:'long',year:'numeric'}).format(d)}
-function setupDate(key,calId,btnId,nativeId,isoId,displayId){const cal=document.getElementById(calId),btn=document.getElementById(btnId),native=document.getElementById(nativeId),iso=document.getElementById(isoId),display=displayId?document.getElementById(displayId):null;function paint(){const v=native.value;if(!v){btn.textContent='يوم شهر سنة 📅';if(display)display.textContent='يوم شهر سنة';return}const text=cal.value==='h'?arHijri(v):arGregorian(v);btn.textContent=text+' 📅';if(display)display.textContent=text;iso.value=v}native.addEventListener('change',paint);cal.addEventListener('change',paint)}
+  <form id="citizenForm" autocomplete="off" novalidate>
+    <section class="form-table" aria-label="بيانات الاعتراض">
+      <div class="form-row two">
+        <div class="cell">
+          <label class="required" for="memoDate">مذكرة اعتراض بتاريخ</label>
+          <div class="date-control">
+            <select class="calendar-mode" aria-label="نوع التقويم"><option value="g">ميلادي</option><option value="h">هجري</option></select>
+            <label class="date-button"><span class="date-text">يوم شهر سنة</span><input id="memoDate" name="memo_date" class="date-native" type="date" required></label>
+            <small class="date-alt"></small>
+          </div>
+        </div>
+        <div class="cell">
+          <label for="objectionRef">رقم الاعتراض</label>
+          <input id="objectionRef" readonly placeholder="يظهر بعد الإرسال" inputmode="numeric">
+        </div>
+      </div>
+      <div class="form-row two">
+        <div class="cell"><label class="required" for="fullName">الاسم</label><input id="fullName" name="full_name" required maxlength="150" placeholder="الاسم باللغة العربية فقط"></div>
+        <div class="cell"><label class="required" for="identityNo">رقم الهوية/الإقامة</label><input id="identityNo" name="identity_no" required inputmode="numeric" maxlength="10" placeholder="١٠ أرقام فقط"></div>
+      </div>
+      <div class="form-row one">
+        <div class="cell"><label class="required" for="nationality">الجنسية</label><input id="nationality" name="nationality" required maxlength="70"></div>
+      </div>
+    </section>
 
-for(let i=1;i<=4;i++)setupDate(String(i),'cal'+i,'btn'+i,'nativeDate'+i,'dateIso'+i,null);
-function simpleDate(id,label){const el=document.getElementById(id),lab=document.getElementById(label);if(!el||!lab)return;el.addEventListener('change',()=>{lab.textContent=el.value?arGregorian(el.value)+' — '+arHijri(el.value):'يوم شهر سنة'})}
-simpleDate('nativeMemo','labelMemo');simpleDate('nativeHospital','labelHospital');
+    <div class="section-title">بيانات المخالفات</div>
+    <section class="violations-wrap" aria-label="المخالفات">
+      <div class="violations-head"><div>م</div><div>رقم المخالفة</div><div>نوع المخالفة</div><div>تاريخ المخالفة</div><div>موقع المخالفة</div></div>
+      <div id="violationBody"></div>
+    </section>
+    <div class="violation-tools">
+      <button type="button" id="addViolation" class="btn btn-secondary">زيادة عدد المخالفات</button>
+      <button type="button" id="removeViolation" class="btn btn-secondary" disabled>حذف آخر مخالفة مضافة</button>
+      <span class="hint">تظهر ٤ مخالفات أولًا، ويمكن الزيادة حتى ١٠ مخالفات.</span>
+    </div>
 
+    <div class="section-title">بيانات المركبة</div>
+    <section class="form-table">
+      <div class="form-row one"><div class="cell"><span class="label required">رقم اللوحة</span><div><div class="plate-fields" aria-label="أرقام اللوحة"><input class="plate-num" inputmode="numeric" maxlength="1" required><input class="plate-num" inputmode="numeric" maxlength="1" required><input class="plate-num" inputmode="numeric" maxlength="1" required><input class="plate-num" inputmode="numeric" maxlength="1" required></div><div class="plate-fields" aria-label="حروف اللوحة" style="margin-top:6px"><input class="plate-letter" maxlength="1" required><input class="plate-letter" maxlength="1" required><input class="plate-letter" maxlength="1" required></div></div></div></div>
+      <div class="form-row one"><div class="cell"><label class="required" for="vehicleType">نوع المركبة</label><input id="vehicleType" name="vehicle_type" required maxlength="120"></div></div>
+      <div class="form-row two">
+        <div class="cell"><label for="decisionNo">رقم القرار الإلكتروني</label><input id="decisionNo" disabled placeholder="يعبأ من الموظف"></div>
+        <div class="cell"><label for="decisionDate">تاريخ القرار</label><input id="decisionDate" disabled placeholder="يعبأ من الموظف"></div>
+      </div>
+    </section>
 
-function boxes(id,l=false){let a=[...document.querySelectorAll('#'+id+' input')];a.forEach((z,i)=>{z.oninput=()=>{z.value=l?z.value.replace(/[^ء-يA-Za-z]/g,'').slice(0,1):z.value.replace(/[^0-9٠-٩]/g,'').slice(0,1);if(z.value&&i<a.length-1)a[i+1].focus()};z.onkeydown=e=>{if(e.key==='Backspace'&&!z.value&&i)a[i-1].focus()}});return()=>a.map(z=>z.value).filter(Boolean).join(l?' ':'')}const pn=boxes('plateNums'),pl=boxes('plateLetters',true);
-const cv=document.getElementById('sig'),ctx=cv.getContext('2d');ctx.lineWidth=3;ctx.lineCap='round';let down=false,signed=false;function pt(e){let r=cv.getBoundingClientRect(),p=e.touches?e.touches[0]:e;return{x:(p.clientX-r.left)*cv.width/r.width,y:(p.clientY-r.top)*cv.height/r.height}}function start(e){e.preventDefault();down=true;let p=pt(e);ctx.beginPath();ctx.moveTo(p.x,p.y)}function move(e){if(!down)return;e.preventDefault();let p=pt(e);ctx.lineTo(p.x,p.y);ctx.stroke();signed=true}cv.addEventListener('mousedown',start);cv.addEventListener('mousemove',move);cv.addEventListener('mouseup',()=>down=false);cv.addEventListener('mouseleave',()=>down=false);cv.addEventListener('touchstart',start,{passive:false});cv.addEventListener('touchmove',move,{passive:false});cv.addEventListener('touchend',()=>down=false);document.getElementById('clear').onclick=()=>{ctx.clearRect(0,0,cv.width,cv.height);signed=false};
-f.onsubmit=async e=>{e.preventDefault();if(!f.reportValidity())return;if(latinDigits(identityNo.value).length!==10){identityNo.setCustomValidity('رقم الهوية يجب أن يكون 10 أرقام بالضبط');identityNo.reportValidity();return}else identityNo.setCustomValidity('');for(let i=1;i<=4;i++){let n=document.getElementById('nativeDate'+i),h=document.getElementById('dateIso'+i);h.value=n.value||''}if(!signed){status.textContent='التوقيع مطلوب.';return}let d=new FormData(f);send.disabled=true;send.textContent='جارٍ الإرسال...';status.textContent='يرجى الانتظار حتى يتم حفظ الاعتراض.';let violations=[];for(let i=1;i<=4;i++){let no=d.get('vioN'+i),title=d.get('vioT'+i),date=d.get('date'+i),loc=d.get('loc'+i);if(String(no||'').trim())violations.push({violation_no:no,violation_title:title,violation_date:date,violation_location:loc})}let payload={full_name:d.get('name'),identity_no:d.get('id'),nationality:d.get('nat'),plate_numbers:pn(),plate_letters:pl(),vehicle_type:d.get('vehicle'),violation_no:d.get('vioN1'),violation_date:d.get('date1'),violation_title:d.get('vioT1'),violation_location:d.get('loc1'),violations:violations,objection_text:d.get('obj'),citizen_signature:cv.toDataURL('image/png'),memo_date:document.getElementById('nativeMemo').value,decision_no:null,decision_date:null,emergency:d.get('emergency')==='on',hospital_name:d.get('hospital'),hospital_date:document.getElementById('nativeHospital').value,patient_name:d.get('patient'),medical_record_no:d.get('recordNo'),phone:d.get('phone'),website:d.get('website')};try{let r=await fetch('https://uzqlqihvgxnepmfjgxlh.supabase.co/functions/v1/submit-objection',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}),o=await r.json();if(!r.ok||!o.ok)throw 0;status.textContent='تم استلام الاعتراض. رقم الطلب: '+o.reference;send.textContent='تم الإرسال'}catch{status.textContent='تعذر إرسال الاعتراض. تحقق من الاتصال ثم حاول مرة أخرى.';send.disabled=false;send.textContent='إرسال الاعتراض'}};
-</script></body></html>
+    <label class="emergency"><input id="emergency" type="checkbox"> حالة إسعافية طارئة</label>
+    <section id="emergencyFields" class="form-table hidden">
+      <div class="form-row two">
+        <div class="cell"><label for="hospitalName">اسم المستشفى</label><input id="hospitalName" maxlength="150"></div>
+        <div class="cell"><label for="hospitalDate">التاريخ</label><div class="date-control"><select class="calendar-mode"><option value="g">ميلادي</option><option value="h">هجري</option></select><label class="date-button"><span class="date-text">يوم شهر سنة</span><input id="hospitalDate" class="date-native" type="date"></label><small class="date-alt"></small></div></div>
+      </div>
+      <div class="form-row two">
+        <div class="cell"><label for="patientName">اسم المريض</label><input id="patientName" maxlength="150"></div>
+        <div class="cell"><label for="recordNo">رقم السجل</label><input id="recordNo" inputmode="numeric" maxlength="10" placeholder="بحد أقصى ١٠ أرقام"></div>
+      </div>
+    </section>
+
+    <section class="letter">
+      <p><strong>سعادة رئيس الهيئة المرورية بمحافظة الطائف:</strong></p>
+      <p>السلام عليكم ورحمة الله وبركاته، أتقدم إليكم بالاعتراض على المخالفة المذكورة بسبب:</p>
+      <textarea id="objectionText" required maxlength="5000" placeholder="اكتب أسباب الاعتراض هنا..."></textarea>
+    </section>
+
+    <section class="footer-grid">
+      <div><label for="footerName" class="required">الاسم</label><input id="footerName" readonly required></div>
+      <div><label for="phone" class="required">رقم الجوال</label><input id="phone" inputmode="numeric" maxlength="10" required placeholder="١٠ أرقام"></div>
+      <div><span class="label required">التوقيع الإلكتروني</span><div class="signature-pad"><canvas id="citizenSignature" width="700" height="180"></canvas></div><div class="signature-actions"><button type="button" id="clearSignature" class="btn btn-secondary">مسح التوقيع</button></div></div>
+    </section>
+
+    <input id="website" class="hp" tabindex="-1" autocomplete="off">
+    <div class="actions">
+      <button id="submitBtn" type="submit" class="btn btn-primary">إرسال الاعتراض</button>
+      <button id="resetBtn" type="button" class="btn btn-danger">مسح البيانات</button>
+      <button id="printBtn" type="button" class="btn btn-secondary">طباعة النموذج</button>
+    </div>
+    <div id="status" class="status" aria-live="polite"></div>
+    <div id="success" class="success"><span>تم استلام الاعتراض، ورقم الاعتراض هو:</span><strong id="successRef"></strong></div>
+  </form>
+</main>
+<script src="citizen.js?v=2" defer></script>
+</body>
+</html>
