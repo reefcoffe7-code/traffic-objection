@@ -26,8 +26,8 @@ jobs:
 
           path = Path("employee.html")
           html = path.read_text(encoding="utf-8")
-          css_tag = '<link rel="stylesheet" href="./portal-fix.css?v=20260928-4">'
-          js_tag = '<script src="./portal-fix.js?v=20260928-4"></script>'
+          css_tag = '<link rel="stylesheet" href="./portal-fix.css?v=20260928-5">'
+          js_tag = '<script src="./portal-fix.js?v=20260928-5"></script>'
 
           if "portal-fix.css" not in html:
               html = html.replace("</head>", f"{css_tag}</head>")
