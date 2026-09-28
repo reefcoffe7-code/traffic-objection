@@ -62,6 +62,52 @@ body.portal-login #auth h2{text-align:center;font-size:27px;color:#444}
 #app .item:hover{background:var(--portalSoft)!important;transform:none!important}
 .portalBack{background:#eee!important;color:#555!important;border:1px solid #ccc!important}
 @media(max-width:760px){.portalTiles{grid-template-columns:1fr 1fr;margin:50px auto}.portalTile{min-height:135px}.portalHome{margin-top:20px}}
+
+:root{--ref:#92277f;--refDark:#7d1f6d;--refPale:#fbf8f1;--refLine:#ded8c7;--refYellow:#eee7a2}
+body{font-family:Tahoma,Arial,sans-serif!important;background:#f6f6f4!important;color:#4c4c4c!important}
+body.portal-login{background:linear-gradient(180deg,#962985 0 39%,#f4f4f2 39% 100%)!important;min-height:100vh}
+body.portal-login .head{height:74px!important;background:#fff!important;padding:8px 35px!important;border-bottom:0!important;display:flex!important;flex-direction:row-reverse!important}
+body.portal-login .head>div:before{content:'نظام الاعتراض الإلكتروني';font-size:23px;color:#666;font-weight:normal}
+body.portal-login .head>div>b,body.portal-login .head>div>div{display:none!important}
+body.portal-login #auth{width:440px!important;max-width:90%!important;margin:285px auto 0!important;padding:28px 35px!important;background:#fff!important;border:1px solid #ddd!important;box-shadow:0 4px 13px rgba(0,0,0,.18)!important}
+body.portal-login #auth h2{font-size:30px!important;font-weight:normal!important;margin:0 0 20px!important}
+body.portal-login #auth label{font-size:17px!important;font-weight:bold!important;color:#555}
+body.portal-login #auth input{height:47px!important;border-radius:0!important;border:1px solid #ccc!important;margin-top:5px}
+body.portal-login #login{width:100%!important;background:var(--ref)!important;border-radius:2px!important;font-size:17px!important}
+body.portal-login #setup,body.portal-login #setupNote{display:none!important}
+.portalTitle{height:54px!important;background:var(--ref)!important;padding:15px 30px!important;font-size:18px!important}
+.portalHome{max-width:none!important;margin:0!important;min-height:calc(100vh - 130px)!important;background:#f8f8f6!important;padding-top:240px!important}
+.portalTiles{grid-template-columns:repeat(4,170px)!important;justify-content:center!important;gap:20px!important;max-width:none!important;margin:0 auto!important}
+.portalTile{width:170px!important;height:200px!important;min-height:0!important;border-radius:0!important;background:linear-gradient(145deg,#92277f,#a73591)!important;box-shadow:0 3px 8px rgba(0,0,0,.15)!important}
+.portalTile .ico{font-size:55px!important;color:#fff}.portalTile b{font-size:15px!important}
+#app{max-width:1180px!important;margin:25px auto!important}
+#app>.card:first-child{padding:0!important;border:0!important;box-shadow:none!important;background:#fff!important}
+#app .toolbar{background:#fff!important;border-bottom:0!important;padding:25px 35px!important;justify-content:center!important}
+#app .toolbar:before{content:'قائمة الاعتراضات';position:absolute;right:45px;margin-top:-70px;color:#555;font-size:20px;font-weight:bold}
+#app .toolbar input{max-width:360px!important;border-radius:2px!important}
+#app #filter{max-width:220px!important;border-radius:2px!important}
+#list{border:1px solid #ddd!important;margin:0 35px 30px!important}
+#list .item{display:grid!important;grid-template-columns:1.1fr 1.1fr 1.1fr 1.1fr 1fr!important;align-items:center!important;min-height:58px!important;background:#fff!important;border-bottom:1px solid #ddd!important;padding:10px 15px!important}
+#list .item:nth-child(odd){background:#fffef2!important}
+#list .item>b{color:#555!important}
+#list .meta{grid-column:2/6!important;display:flex!important;justify-content:space-around!important;align-items:center!important;font-size:12px!important}
+#detail{max-width:1180px!important;margin:20px auto!important;padding:0!important;background:#fff!important;border-radius:0!important}
+#detail:before{content:'معالجة الاعتراض';display:block;background:var(--ref);color:#fff;padding:12px 20px;font-size:18px;font-weight:bold}
+.paperView{width:100%!important;max-width:none!important;border:0!important;box-shadow:none!important;padding:20px 28px!important}
+.paperView .govHead,.paperView .pvTitle,.paperView .pvLegal{display:none!important}
+.paperView table{border-collapse:separate!important;border-spacing:0!important;border:1px solid #ddd!important}
+.paperView th{background:#f4f2ea!important;color:#555!important}
+.paperView th,.paperView td{border-color:#ddd!important;height:38px!important;font-size:13px!important}
+.employeeDecision{width:100%!important;max-width:none!important;border:0!important;border-top:1px solid #ddd!important;padding:20px 28px!important}
+#employeeRecommendation{background:#faf9f4!important;border:1px solid #ddd!important;padding:15px!important}
+#rationaleCode,#violationNotes,#actionTaken{background:#fff!important}
+#photoPreview{background:#fafafa!important;border:1px dashed #bbb!important;padding:10px!important;min-height:90px!important}
+.actions{max-width:none!important;padding:0 28px 25px!important;justify-content:flex-start!important}
+.actions .primary{background:var(--ref)!important}
+#save{background:#16854a!important;color:#fff!important}
+#finalApprove{background:#16854a!important}
+#previewCommittee{background:#eee!important;color:#555!important}
+@media(max-width:760px){body.portal-login #auth{margin-top:130px!important}.portalHome{padding-top:60px!important}.portalTiles{grid-template-columns:1fr 1fr!important;padding:15px!important}.portalTile{width:100%!important;height:145px!important}#app{margin:10px!important}#list{margin:0!important}#list .item{display:block!important}.portalTitle{height:auto!important}}
 </style></head><body class="portal-login"><div class="wrap">
 <div class="head"><div><b style="font-size:20px">لوحة الموظف — الاعتراضات</b><div style="font-size:12px">وصول خاص للموظف المصرح له</div></div><button id="logout" class="secondary hide">تسجيل الخروج</button></div>
 <section id="auth" class="card login"><h2>تسجيل الدخول</h2><div id="setupNote" style="font-size:13px;margin-bottom:12px">إذا كانت هذه أول مرة، أنشئ حساب الموظف من نفس الشاشة.</div><label>رقم الهوية / اسم المستخدم</label><input id="email" type="email" autocomplete="username"><br><br><label>كلمة المرور</label><input id="password" type="password" autocomplete="current-password" minlength="12"><div style="display:flex;gap:8px;margin-top:14px"><button id="login" class="primary">دخول</button><button id="setup" class="secondary">إنشاء أول حساب</button></div><div id="authMsg" class="error"></div></section>
