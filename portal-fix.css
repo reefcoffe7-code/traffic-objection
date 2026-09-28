@@ -1,0 +1,122 @@
+/* Deployment-level portal corrections. Keep this file last in the cascade. */
+#globalPortalHome {
+  position: fixed;
+  inset-inline-start: 18px;
+  top: 86px;
+  z-index: 99999;
+  min-width: 165px;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 4px;
+  background: #8f277d;
+  color: #fff;
+  font: 700 14px Tahoma, Arial, sans-serif;
+  box-shadow: 0 5px 16px rgba(77, 19, 68, .28);
+  cursor: pointer;
+}
+
+#globalPortalHome:hover,
+#globalPortalHome:focus-visible {
+  background: #721c64;
+  outline: 3px solid rgba(143, 39, 125, .18);
+}
+
+#globalPortalHome[hidden] {
+  display: none !important;
+}
+
+#portalBuildBadge {
+  position: fixed;
+  inset-inline-end: 12px;
+  bottom: 10px;
+  z-index: 99999;
+  padding: 5px 9px;
+  border-radius: 3px;
+  background: rgba(33, 33, 33, .78);
+  color: #fff;
+  direction: rtl;
+  font: 11px Tahoma, Arial, sans-serif;
+  pointer-events: none;
+}
+
+.forced-captcha-wrap {
+  margin-top: 16px;
+}
+
+.forced-captcha-wrap > label {
+  display: block;
+  margin-bottom: 7px;
+  color: #555;
+  font-weight: 700;
+}
+
+.forced-captcha-row {
+  display: grid;
+  grid-template-columns: 145px 42px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.forced-captcha-code {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #aaa;
+  background: repeating-linear-gradient(-8deg, #fff 0 7px, #f2edf1 8px 9px);
+  color: #111;
+  font: 800 27px/1 monospace;
+  letter-spacing: 4px;
+  user-select: none;
+}
+
+.forced-captcha-refresh {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #fff;
+  color: #8f277d;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+/* The verification field must remain visible even when older source CSS is cached. */
+#captchaCode,
+#captchaInput,
+#refreshCaptcha,
+#forcedCaptchaWrap {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 760px) {
+  #globalPortalHome {
+    top: auto;
+    bottom: 16px;
+    inset-inline-start: 12px;
+    min-width: 145px;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  #portalBuildBadge {
+    bottom: 62px;
+  }
+
+  .forced-captcha-row {
+    grid-template-columns: 112px 38px 1fr;
+  }
+
+  .forced-captcha-code {
+    font-size: 22px;
+  }
+}
+
+@media print {
+  #globalPortalHome,
+  #portalBuildBadge,
+  #forcedCaptchaWrap {
+    display: none !important;
+  }
+}
