@@ -1,122 +1,359 @@
-/* Deployment-level portal corrections. Keep this file last in the cascade. */
-#globalPortalHome {
-  position: fixed;
-  inset-inline-start: 18px;
-  top: 86px;
-  z-index: 99999;
-  min-width: 165px;
-  padding: 11px 16px;
-  border: 0;
-  border-radius: 4px;
-  background: #8f277d;
-  color: #fff;
-  font: 700 14px Tahoma, Arial, sans-serif;
-  box-shadow: 0 5px 16px rgba(77, 19, 68, .28);
-  cursor: pointer;
+/* Employee portal visual layer — build 2026.09.28.4 */
+:root{
+  --gov:#174f43;
+  --gov-dark:#103a32;
+  --gov-mid:#23695a;
+  --gold:#b89552;
+  --cream:#f5f1e8;
+  --paper:#ffffff;
+  --ink:#20332f;
+  --muted:#6b7c77;
+  --line:#d9e2df;
+  --soft:#eef5f2;
+  --danger:#9b2c2c;
 }
 
-#globalPortalHome:hover,
-#globalPortalHome:focus-visible {
-  background: #721c64;
-  outline: 3px solid rgba(143, 39, 125, .18);
+html,body{min-height:100%}
+body{
+  background:linear-gradient(180deg,#f4f1e9 0,#f7f8f6 48%,#eef3f1 100%)!important;
+  color:var(--ink)!important;
 }
 
-#globalPortalHome[hidden] {
-  display: none !important;
+.wrap{max-width:1220px!important;margin:0 auto!important;padding:22px 24px 40px!important}
+
+/* Top bar */
+.head{
+  min-height:82px!important;
+  padding:16px 24px!important;
+  border:1px solid rgba(23,79,67,.16)!important;
+  border-radius:16px!important;
+  background:linear-gradient(135deg,var(--gov-dark),var(--gov))!important;
+  color:#fff!important;
+  box-shadow:0 12px 32px rgba(20,63,54,.14)!important;
+  position:relative;
+  overflow:hidden;
+}
+.head:after{
+  content:"";
+  position:absolute;
+  inset-inline-start:0;
+  bottom:0;
+  width:34%;
+  height:3px;
+  background:var(--gold);
+}
+.head b{font-size:22px!important}
+.head>div>div{margin-top:5px;color:#dce9e5;font-size:12px!important}
+#logout{
+  background:#fff!important;
+  color:var(--gov)!important;
+  border:1px solid rgba(255,255,255,.7)!important;
+  border-radius:9px!important;
+  padding:10px 18px!important;
+  box-shadow:none!important;
 }
 
-#portalBuildBadge {
-  position: fixed;
-  inset-inline-end: 12px;
-  bottom: 10px;
-  z-index: 99999;
-  padding: 5px 9px;
-  border-radius: 3px;
-  background: rgba(33, 33, 33, .78);
-  color: #fff;
-  direction: rtl;
-  font: 11px Tahoma, Arial, sans-serif;
-  pointer-events: none;
+/* Login */
+body.portal-login{
+  background:
+    radial-gradient(circle at 16% 8%,rgba(184,149,82,.13),transparent 28%),
+    linear-gradient(180deg,#edf3f0 0,#f8f6f0 100%)!important;
+}
+body.portal-login .wrap{max-width:1220px!important;margin:0 auto!important;padding:22px 24px!important}
+body.portal-login .head{
+  height:auto!important;
+  min-height:82px!important;
+  padding:16px 24px!important;
+  border-radius:16px!important;
+  background:linear-gradient(135deg,var(--gov-dark),var(--gov))!important;
+  color:#fff!important;
+}
+body.portal-login .head>div:before{content:none!important}
+body.portal-login .head>div>b,
+body.portal-login .head>div>div{display:block!important;color:inherit!important}
+body.portal-login #auth{
+  width:480px!important;
+  max-width:calc(100vw - 40px)!important;
+  margin:80px auto 0!important;
+  padding:30px 34px!important;
+  border:1px solid var(--line)!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  box-shadow:0 18px 45px rgba(20,63,54,.12)!important;
+}
+body.portal-login #auth h2{
+  margin:0 0 24px!important;
+  color:var(--gov-dark)!important;
+  font-size:26px!important;
+  font-weight:700!important;
+}
+body.portal-login #auth label{color:#405a53!important;font-size:14px!important}
+body.portal-login #auth input{
+  height:46px!important;
+  border:1px solid #cbd8d4!important;
+  border-radius:9px!important;
+  background:#fff!important;
+}
+body.portal-login #login{
+  width:100%!important;
+  background:linear-gradient(135deg,var(--gov),var(--gov-mid))!important;
+  border-radius:9px!important;
+  box-shadow:none!important;
+}
+body.portal-login #setup,body.portal-login #setupNote{display:none!important}
+
+/* Main employee dashboard */
+#portalHome{
+  margin-top:18px!important;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:rgba(255,255,255,.92);
+  box-shadow:0 14px 36px rgba(20,63,54,.08);
+  overflow:hidden;
+}
+.portalTitle{
+  height:auto!important;
+  min-height:64px!important;
+  padding:18px 24px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px;
+  background:#fff!important;
+  color:var(--gov-dark)!important;
+  border-bottom:1px solid var(--line)!important;
+  font-size:21px!important;
+}
+.portalTitle:before{
+  content:"";
+  width:5px;
+  height:28px;
+  margin-inline-end:10px;
+  border-radius:8px;
+  background:var(--gold);
+}
+.portalTitle #homeFromDashboard{display:none!important}
+.portalHome{
+  max-width:none!important;
+  min-height:0!important;
+  margin:0!important;
+  padding:34px!important;
+  background:transparent!important;
+}
+.portalHome:before{
+  content:"اختر الخدمة المطلوبة";
+  display:block;
+  margin-bottom:6px;
+  color:var(--gov-dark);
+  font-size:22px;
+  font-weight:700;
+}
+.portalHome:after{
+  content:"يمكنك معالجة الاعتراضات أو البحث عنها من نفس لوحة الموظف.";
+  display:block;
+  margin-top:22px;
+  color:var(--muted);
+  font-size:12px;
+}
+.portalTiles{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:16px!important;
+  max-width:none!important;
+  margin:24px 0 0!important;
+}
+.portalTile{
+  width:auto!important;
+  height:auto!important;
+  min-height:132px!important;
+  padding:22px!important;
+  display:grid!important;
+  grid-template-columns:62px 1fr 28px!important;
+  grid-template-rows:auto auto!important;
+  align-items:center!important;
+  justify-items:start!important;
+  gap:4px 18px!important;
+  border:1px solid var(--line)!important;
+  border-radius:14px!important;
+  background:#fff!important;
+  color:var(--ink)!important;
+  box-shadow:0 5px 16px rgba(20,63,54,.06)!important;
+  transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease!important;
+  text-align:right!important;
+}
+.portalTile:after{
+  content:"‹";
+  grid-column:3;
+  grid-row:1/3;
+  align-self:center;
+  color:var(--gold);
+  font-size:34px;
+  font-weight:400;
+}
+.portalTile:hover{
+  transform:translateY(-2px)!important;
+  border-color:#b8cbc5!important;
+  box-shadow:0 10px 24px rgba(20,63,54,.10)!important;
+}
+.portalTile .ico{
+  grid-column:1;
+  grid-row:1/3;
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:var(--soft);
+  color:var(--gov)!important;
+  font-size:30px!important;
+  line-height:1!important;
+}
+.portalTile b{
+  grid-column:2;
+  grid-row:1;
+  align-self:end;
+  color:var(--gov-dark);
+  font-size:17px!important;
+}
+.portalTile b:after{
+  display:block;
+  margin-top:7px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:400;
+}
+#tileProcess b:after{content:"عرض الطلبات الواردة واستكمال الإجراء"}
+#tileObjection b:after{content:"الوصول السريع برقم الاعتراض أو الاسم"}
+#tileViolation b:after{content:"البحث باستخدام رقم المخالفة"}
+#tileInquiry b:after{content:"استعراض حالة الطلب والنتيجة المسجلة"}
+
+/* Requests screen */
+#app{
+  max-width:none!important;
+  margin:18px 0 0!important;
+}
+#app>.card:first-child{
+  padding:0!important;
+  border:1px solid var(--line)!important;
+  border-radius:16px!important;
+  background:#fff!important;
+  box-shadow:0 12px 30px rgba(20,63,54,.07)!important;
+  overflow:hidden;
+}
+#app .toolbar{
+  position:relative!important;
+  margin:0!important;
+  padding:78px 24px 20px!important;
+  display:grid!important;
+  grid-template-columns:auto minmax(280px,1fr) 220px auto!important;
+  gap:10px!important;
+  align-items:center!important;
+  justify-content:stretch!important;
+  background:#fff!important;
+  border:0!important;
+  border-bottom:1px solid var(--line)!important;
+}
+#app .toolbar:before{
+  content:"قائمة الاعتراضات"!important;
+  position:absolute!important;
+  top:22px!important;
+  right:24px!important;
+  margin:0!important;
+  color:var(--gov-dark)!important;
+  font-size:21px!important;
+  font-weight:700!important;
+}
+#app .toolbar:after{
+  content:"ابحث ثم افتح الطلب لمراجعته ومعالجته";
+  position:absolute;
+  top:50px;
+  right:24px;
+  color:var(--muted);
+  font-size:12px;
+}
+#app .toolbar input,#app .toolbar select{
+  max-width:none!important;
+  height:44px!important;
+  border:1px solid #cbd8d4!important;
+  border-radius:9px!important;
+  background:#fff!important;
+}
+#app .toolbar button{
+  height:44px;
+  border-radius:9px!important;
+}
+#app .toolbar .primary{background:var(--gov)!important;color:#fff!important}
+.portalBack{
+  background:#f3f5f4!important;
+  color:var(--gov)!important;
+  border:1px solid #d2ddda!important;
+}
+#list{
+  margin:0!important;
+  border:0!important;
+  background:#fff;
+}
+#list .item{
+  min-height:66px!important;
+  margin:0!important;
+  padding:13px 24px!important;
+  display:grid!important;
+  grid-template-columns:1.1fr 1.3fr 2.6fr!important;
+  align-items:center!important;
+  gap:16px!important;
+  border:0!important;
+  border-bottom:1px solid #edf1ef!important;
+  background:#fff!important;
+  color:var(--ink)!important;
+}
+#list .item:nth-child(odd){background:#fbfcfb!important}
+#list .item:hover{background:#f1f6f4!important;transform:none!important}
+#list .item>b{color:var(--gov-dark)!important}
+#list .meta{
+  grid-column:auto!important;
+  display:block!important;
+  color:var(--muted)!important;
+  font-size:12px!important;
+}
+.badge{
+  background:#edf5f2!important;
+  color:var(--gov)!important;
+  border:1px solid #cfe0da!important;
 }
 
-.forced-captcha-wrap {
-  margin-top: 16px;
+/* Detail/form */
+#detail{
+  max-width:none!important;
+  margin:18px 0 0!important;
+  border:1px solid var(--line)!important;
+  border-radius:16px!important;
+  overflow:hidden;
+  background:#fff!important;
+  box-shadow:0 12px 30px rgba(20,63,54,.07)!important;
 }
-
-.forced-captcha-wrap > label {
-  display: block;
-  margin-bottom: 7px;
-  color: #555;
-  font-weight: 700;
+#detail:before{
+  background:linear-gradient(135deg,var(--gov-dark),var(--gov))!important;
+  color:#fff!important;
 }
+.actions .primary,#save,#finalApprove{background:var(--gov)!important;color:#fff!important}
+#previewCommittee{background:#f1f4f3!important;color:var(--gov)!important}
+.error{color:var(--danger)!important}
 
-.forced-captcha-row {
-  display: grid;
-  grid-template-columns: 145px 42px 1fr;
-  gap: 8px;
-  align-items: center;
+/* Remove deployment debug UI from the actual portal */
+#globalPortalHome,#portalBuildBadge{display:none!important}
+
+@media(max-width:820px){
+  .wrap{padding:12px!important}
+  .head{border-radius:12px!important}
+  .portalHome{padding:20px!important}
+  .portalTiles{grid-template-columns:1fr!important}
+  .portalTile{min-height:118px!important}
+  #app .toolbar{grid-template-columns:1fr!important;padding:78px 16px 16px!important}
+  #list .item{display:block!important;padding:14px 16px!important}
+  #list .meta{margin-top:7px!important}
 }
-
-.forced-captcha-code {
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #aaa;
-  background: repeating-linear-gradient(-8deg, #fff 0 7px, #f2edf1 8px 9px);
-  color: #111;
-  font: 800 27px/1 monospace;
-  letter-spacing: 4px;
-  user-select: none;
-}
-
-.forced-captcha-refresh {
-  width: 42px;
-  height: 42px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  background: #fff;
-  color: #8f277d;
-  font-size: 23px;
-  cursor: pointer;
-}
-
-/* The verification field must remain visible even when older source CSS is cached. */
-#captchaCode,
-#captchaInput,
-#refreshCaptcha,
-#forcedCaptchaWrap {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-@media (max-width: 760px) {
-  #globalPortalHome {
-    top: auto;
-    bottom: 16px;
-    inset-inline-start: 12px;
-    min-width: 145px;
-    padding: 10px 12px;
-    font-size: 12px;
-  }
-
-  #portalBuildBadge {
-    bottom: 62px;
-  }
-
-  .forced-captcha-row {
-    grid-template-columns: 112px 38px 1fr;
-  }
-
-  .forced-captcha-code {
-    font-size: 22px;
-  }
-}
-
-@media print {
-  #globalPortalHome,
-  #portalBuildBadge,
-  #forcedCaptchaWrap {
-    display: none !important;
-  }
+@media print{
+  body{background:#fff!important}
+  .head,#portalHome,#app .toolbar{box-shadow:none!important}
 }
