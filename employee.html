@@ -1,27 +1,913 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>لوحة الموظف — الاعتراضات</title>
-<link rel="stylesheet" href="employee.css?v=4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام الاعتراض الإلكتروني على المخالفات المرورية</title>
+    <!-- Bootstrap 5 RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- QR Code Generator JS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #5C1D4A; /* اللون العنابي الرسمي */
+            --primary-hover: #481539;
+            --bg-light: #f8f9fa;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Navbar Header */
+        .header-nav {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--primary-color);
+            padding: 10px 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .system-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .system-subtitle {
+            font-size: 0.82rem;
+            color: #6c757d;
+        }
+
+        .vision-logo {
+            height: 42px;
+        }
+
+        .btn-purple {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-purple:hover {
+            background-color: var(--primary-hover);
+            color: #ffffff;
+        }
+
+        .bg-purple {
+            background-color: var(--primary-color) !important;
+        }
+
+        .text-purple {
+            color: var(--primary-color) !important;
+        }
+
+        /* Main Container Views */
+        .app-view {
+            display: none;
+            padding: 25px 0;
+        }
+
+        .app-view.active {
+            display: block;
+        }
+
+        /* View 1: Login Screen */
+        .login-card {
+            max-width: 420px;
+            margin: 40px auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            border: none;
+        }
+
+        .login-header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #eee;
+            padding: 20px;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        .captcha-box {
+            background-color: #f1f1f1;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 6px;
+            user-select: none;
+            display: inline-block;
+            border: 1px dashed #aaa;
+        }
+
+        /* View 2: Portal Cards Dashboard */
+        .portal-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: all 0.25s ease;
+            cursor: pointer;
+            height: 100%;
+            border: 1px solid #eaeaea;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(92, 29, 74, 0.18);
+            border-color: var(--primary-color);
+        }
+
+        .portal-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .portal-card-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        /* View 3: Radar Image Preview & Controls */
+        .radar-preview-container {
+            background-color: #000;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .radar-controls-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .radar-tab-btn {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 2px;
+            border-radius: 4px;
+            font-size: 0.88rem;
+        }
+
+        .radar-tab-btn.active {
+            background: white;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* View 4: Public Citizen Objection Form */
+        .citizen-form-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .stat-card {
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-right: 4px solid var(--primary-color);
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .workflow-step {
+            text-align: center;
+            z-index: 2;
+            background: #fff;
+            padding: 0 8px;
+        }
+
+        .workflow-step i {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #e9ecef;
+            color: #6c757d;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+        .workflow-step.completed i {
+            background: #198754;
+            color: white;
+        }
+
+        .workflow-step.active i {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Signature Canvas Box */
+        .signature-pad {
+            border: 2px dashed #ccc;
+            border-radius: 6px;
+            background-color: #fafafa;
+            cursor: crosshair;
+            width: 100%;
+            height: 120px;
+        }
+
+        /* Modal Customizations */
+        .modal-header-custom {
+            background-color: #ffffff;
+            border-bottom: 2px solid #eee;
+        }
+    </style>
 </head>
 <body>
-<div class="shell">
-<header class="topbar"><div><h1>لوحة الموظف — الاعتراضات</h1><p>وصول خاص للموظف المصرح له</p></div><button id="logout" class="secondary hidden">تسجيل الخروج</button></header>
-<section id="authPanel" class="panel login"><h2>دخول الموظف</h2><label for="email">البريد الإلكتروني</label><input id="email" type="email" autocomplete="username"><label for="password">كلمة المرور</label><input id="password" type="password" autocomplete="current-password" minlength="12"><div class="login-actions"><button id="login" class="primary">دخول</button><button id="setup" class="secondary">إنشاء أول حساب</button></div><div id="authMessage" class="message"></div></section>
-<main id="app" class="hidden"><section id="listPanel" class="panel"><div class="toolbar"><input id="search" placeholder="بحث برقم الاعتراض أو الهوية أو المخالفة أو الاسم"><select id="filter"><option value="">كل الحالات</option><option value="new">جديد</option><option value="valid">صحيحة</option><option value="cancelled">إلغاء</option><option value="code_edit">تعديل رمز</option><option value="transfer">تحويل</option><option value="letter">خطاب</option></select><button id="refresh" class="secondary">تحديث</button></div><div id="requestList"></div></section>
-<section id="detailView" class="panel detail hidden"><button id="back" class="secondary back">العودة إلى قائمة الاعتراضات</button><article class="employee-paper">
-<header class="gov-head"><div>المملكة العربية السعودية<br>وزارة الداخلية<br>الأمن العام<br>الإدارة العامة للمرور</div><div class="seal"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/wAALCABHALQBAREA/8QAGgABAAMBAQEAAAAAAAAAAAAAAAEDBAIFBv/EADAQAAICAgAEAwgCAQUAAAAAAAECAAMEEQUSITETQVEGFCIjMmFxgRWhkUJicoLR/9oACAEBAAA/APuoiV33149RstYKg7kypsysCpgeZbDoETnH4hTfa1QJV18mGt/iaLbVqr536L2nn16XKQKTrxjsb9RPSc9CFI5j23KxeqbV2HOo23pKX4ljpULeYlCdb12mmq1Lqw6MGB7ETLmPW+k38VbqTOuHsTjsWJJDsNn8zPlX13naOfkuN67EzvCte3KcsSQUBA9JrfIqrtWpnUO3YE9TDX1qpZnAUee4W5Gt8MHba5v1LIiIiJkzKvGspRiRWx6685n/AItBciKtgpXrvxD/AFNB4ZjeIlurC6fSS5nOQbsgGhKmUN9TMOgH/suqwqagOUMdNzbY76znJ8VLlsrqNgCkaXuDKUxGzLWsy62rXWgnN9X51LP4ygAhXtUHuA3SMfFq4dSy0ixlJ3re9StcU5lpvuD1r0Cr2J15mbUqREZVHRiSf3Mn8VjDoOcKR1Xm7nyM0U41dBBTewvLsmYnwUzcqyy52Vqn0gTpr9zs8JqKkG63RJPUjvOsLEanIsd3sYABF59a19tTbERERERJiJG5DWKvcgSBah7MD+50CDJiJAABJAGz3iIiIiIkxImfMzKsKsWXHSk8o/M7FpdAydd9txqw72yj01MVuZXVaUZ7H0ddF6b9JzfehqZhQpbX+syge78oJqatvMo2pUucviBKct9k9OcbB/cvr4lkUk+8NWy/bpL043iEHnsC677M24uTVl0i2lg6HsRLoiRERESYkEgdzMmVxCjFHzG+LyUdSZ4XEmbjArFp93xkbmIY6LTf/KUVVhVb4UGvhBMj+YQqSqWn/oZ5OT7XcOVmRqbWPY6WWY/G6smo+Fg38rDWwombO4ri1A+842QNjW9amav2gwTypVWwYnpzLsyLMlrQ/iMxYnoOUiVWLzUlSysD30es+j4LmYvDeH10Nd8sH4SenfynuU5NNw3XYrD7GWyZERERJieVxfh2Vk/Nw8lq3A+g/SZ5VluRWg95pRblPxcx2NeolI4g5B8NqB99dZRdZdkv4XjFUJ7jp0kcawL7sBKsW1ioO2G+rT5tcSutxVelofz0u57fDqrMa2q18gjFQ9UccvT9zPm4l9qF8jIL1MeZQi808dsZLW5cZbWbeuq6nr1JlcPw0rLMb3bm5e/Kv3mmoWW0m19j1GhL1rRkb4VOgCoPn9ukswaaznivHWxToEmliRv0n1uHRZSnzLGcnyPlNMiIiTERE4toqvXltrVx9xPKyPZvEs61M1Z9O4nm3ezuZUD4Xh2D/H9St8HIrXmtx7QVPZSZTdWbaiCAH5unO3UD8+sLiY2yGoRwe3OSTuW1YHwMtNKJ/wASf8S6jAsStBVUKhzfHy9Sf6nJ4ZYbD8hnYk7Oj2lycEyrWB8OulQNDm7mbKfZ2gEHJte3/aPhE9WminHTloqWseiiWREiIkxERJkSZE5equz660b8ruVNg4jEE49e/UDUuVFX6VA/AkhQOwkyIiIiJESYiJMRERERESIiIiJE/9k=" alt="شعار الجهة"></div><div>إدارة الهيئات المرورية<br>الهيئة المرورية بمحافظة الطائف</div></header>
-<header class="legal"><h2>((المادة الخامسة والسبعون من نظام المرور))</h2><p>للمخالف حق الاعتراض أمام المحكمة المختصة استنادًا للمادة (٧٥) من نظام المرور الصادر بالمرسوم الملكي رقم (م/٨٥) وتاريخ ٢٦/١٠/١٤٢٨هـ، ولا ينظر في المخالفة التي مضى على تحريرها أكثر من ثلاثين يومًا.</p></header>
-<section class="doc-table memo-table"><div class="doc-cell label-cell">مذكرة اعتراض بتاريخ</div><div class="doc-cell" id="memoDate"></div></section>
-<section class="doc-table person-table"><div class="doc-cell label-cell">الاسم</div><div class="doc-cell" id="citizenNameTop"></div><div class="doc-cell label-cell">رقم الهوية/إقامة</div><div class="doc-cell" id="identityNo"></div><div class="doc-cell label-cell nationality-label">الجنسية</div><div class="doc-cell nationality-input" id="nationality"></div></section>
-<section class="violations"><div class="violations-head"><div></div><div>رقم المخالفة</div><div>نوع المخالفة</div><div>تاريخ المخالفة</div><div>موقع المخالفة</div></div><div id="violationRows"></div><div class="other-back">☐ أخرى خلف الورقة.</div></section>
-<div class="section-title">بيانات المركبة</div><section class="doc-table vehicle-table"><div class="doc-cell label-cell">رقم اللوحة</div><div class="doc-cell" id="plateNo"></div><div class="doc-cell label-cell">نوع المركبة</div><div class="doc-cell" id="vehicleType"></div><div class="doc-cell label-cell">رقم القرار الإلكتروني</div><div class="doc-cell" id="decisionNo"></div><div class="doc-cell label-cell">التاريخ</div><div class="doc-cell" id="decisionDate"></div></section>
-<div class="emergency-row">حالة إسعافية طارئة <span id="emergencyFlag">☐</span></div><section class="doc-table medical-table"><div class="doc-cell label-cell">اسم المستشفى</div><div class="doc-cell" id="hospitalName"></div><div class="doc-cell label-cell">التاريخ</div><div class="doc-cell" id="hospitalDate"></div><div class="doc-cell label-cell">اسم المريض</div><div class="doc-cell" id="patientName"></div><div class="doc-cell label-cell">رقم السجل</div><div class="doc-cell" id="recordNo"></div></section>
-<section class="appeal"><p><strong>سعادة رئيس الهيئة المرورية بمحافظة الطائف:</strong></p><p>السلام عليكم ورحمة الله وبركاته، أتقدم إليكم بالاعتراض على المخالفة المذكورة بسبب:</p><div id="reasonText" class="reason-lines"></div></section>
-<section class="citizen-sign-row"><div><strong>الاسم:</strong><br><span id="citizenName"></span></div><div><strong>رقم الجوال:</strong><br><span id="citizenPhone"></span></div><div><strong>التوقيع:</strong><img id="citizenSignature" class="citizen-sign hidden" alt="توقيع المواطن"></div></section>
-<section class="employee-section"><div class="decision-options"><label><input type="radio" name="employeeAction" value="cancelled"> إلغاء</label><label><input type="radio" name="employeeAction" value="valid"> صحيحة</label><label><input type="radio" name="employeeAction" value="code_edit"> تعديل رمز</label><label><input type="radio" name="employeeAction" value="transfer"> تحويل</label><label><input type="radio" name="employeeAction" value="letter"> خطاب</label></div><label class="rationale-label" for="violationNotes">حيثيات المخالفة</label><textarea id="violationNotes" maxlength="5000"></textarea><div class="taken-row"><label for="actionTaken">متخذ الإجراء:</label><input id="actionTaken" maxlength="200"></div><div class="employee-sign-row"><span>توقيع الموظف الإلكتروني:</span><div class="employee-sign"><canvas id="employeeSignature" width="700" height="150"></canvas></div><button type="button" id="clearEmployeeSignature" class="secondary">مسح التوقيع</button></div></section>
-</article><div class="detail-actions"><button id="save" class="primary">حفظ وإرسال للجنة</button><button id="print" class="secondary">طباعة صفحة واحدة</button></div><div id="saveStatus" class="status-line"></div></section></main></div>
-<script type="module" src="employee.js?v=4"></script>
-</body></html>
+
+    <!-- Header Navigation Bar -->
+    <header class="header-nav d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <i class="fa-solid fa-shield-halved fa-2x text-purple me-3"></i>
+            <div>
+                <h1 class="system-title">نظام الاعتراض الإلكتروني</h1>
+                <span class="system-subtitle">خدمة إلكترونية لتقديم ومتابعة الاعتراض على المخالفات المرورية</span>
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+            <span class="badge bg-light text-dark p-2 border" id="userRoleBadge">
+                <i class="fa-solid fa-user me-1"></i> مرحباً: <strong id="currentUserName">زائر / مواطن</strong>
+            </span>
+            <button class="btn btn-outline-secondary btn-sm" onclick="switchRoleView()">
+                <i class="fa-solid fa-repeat me-1"></i> تغيير الصلاحيات
+            </button>
+            <img src="https://vision2030.gov.sa/media/rcmbed condition/vision-2030-logo.png" alt="رؤية 2030" class="vision-logo d-none d-md-block" onerror="this.style.display='none'">
+        </div>
+    </header>
+
+    <div class="container-fluid px-4">
+
+        <!-- ================= VIEW 1: LOGIN PAGE ================= -->
+        <section id="view-login" class="app-view active">
+            <div class="card login-card">
+                <div class="login-header">
+                    <h4 class="text-purple fw-bold mb-1">تسجيل الدخول</h4>
+                    <p class="text-muted small mb-0">نظام الاعتراض الإلكتروني - بوابة الموظفين</p>
+                </div>
+                <div class="card-body p-4">
+                    <form onsubmit="handleLogin(event)">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">رقم الهوية / اسم المستخدم</label>
+                            <input type="text" id="loginId" class="form-control" placeholder="أدخل رقم الهوية" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">كلمة المرور</label>
+                            <input type="password" class="form-control" placeholder="••••••••" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">رمز التحقق</label>
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <div class="captcha-box" id="captchaCode">300926</div>
+                                <button type="button" class="btn btn-light border" onclick="generateCaptcha()"><i class="fa-solid fa-rotate-right"></i></button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="أدخل رمز التحقق الظاهر" required>
+                        </div>
+                        <button type="submit" class="btn btn-purple w-100 py-2 fw-bold mt-2">دخول</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center bg-white border-0 pb-3">
+                    <button class="btn btn-link text-decoration-none text-muted small" onclick="showView('view-citizen-form')">
+                        <i class="fa-solid fa-file-pen me-1"></i> الانتقال لتعبئة نموذج اعتراض مواطن
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= VIEW 2: PORTAL DASHBOARD ================= -->
+        <section id="view-portal" class="app-view">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h3 class="fw-bold text-purple mb-0">إدارة الاعتراضات</h3>
+                    <p class="text-muted mb-0">اختر الخدمة المطلوبة من القائمة التالية</p>
+                </div>
+                <button class="btn btn-outline-danger btn-sm" onclick="showView('view-login')">
+                    <i class="fa-solid fa-right-from-bracket me-1"></i> تسجيل الخروج
+                </button>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="portal-card" onclick="showView('view-objection-list')">
+                        <i class="fa-solid fa-list-check portal-icon"></i>
+                        <h5 class="portal-card-title">معالجة الاعتراضات</h5>
+                        <p class="text-muted small mt-2">عرض وقبول أو رفض طلبات الاعتراض المقدمة</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="portal-card" onclick="showView('view-objection-list')">
+                        <i class="fa-solid fa-magnifying-glass-chart portal-icon"></i>
+                        <h5 class="portal-card-title">البحث عن اعتراض</h5>
+                        <p class="text-muted small mt-2">الاستعلام برقم الاعتراض أو السجل المدني</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="portal-card" onclick="showView('view-objection-list')">
+                        <i class="fa-solid fa-file-invoice-dollar portal-icon"></i>
+                        <h5 class="portal-card-title">البحث عن مخالفة</h5>
+                        <p class="text-muted small mt-2">استعراض حثيثات تفاصيل بيانات رصد المخالفة</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="portal-card" onclick="alert('خدمة الاستعلام عن تصريح الشاحنات قيد التحديث النظامي')">
+                        <i class="fa-solid fa-truck-front portal-icon"></i>
+                        <h5 class="portal-card-title">الاستعلام عن تصريح الشاحنة</h5>
+                        <p class="text-muted small mt-2">التحقق من تصاريح دخول واستثناءات الشاحنات</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= VIEW 3: OBJECTIONS TABLE LIST ================= -->
+        <section id="view-objection-list" class="app-view">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0 text-purple"><i class="fa-solid fa-table-list me-2"></i>قائمة الاعتراضات المرورية</h5>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="showView('view-portal')"><i class="fa-solid fa-arrow-right me-1"></i> العودة للرئيسية</button>
+                </div>
+                <div class="card-body">
+                    <!-- Filter bar -->
+                    <div class="row g-2 mb-3 bg-light p-3 rounded">
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="searchObjectionId" placeholder="بحث برقم الاعتراض">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="searchViolationId" placeholder="بحث برقم المخالفة">
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-purple px-4" onclick="filterTable()"><i class="fa-solid fa-search me-1"></i> بحث</button>
+                            <button class="btn btn-secondary px-3" onclick="resetTable()"><i class="fa-solid fa-rotate me-1"></i> إعادة تعيين</button>
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle border text-center">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>رقم الاعتراض</th>
+                                    <th>تاريخ الاعتراض</th>
+                                    <th>رقم المخالفة</th>
+                                    <th>رقم هوية المخالف</th>
+                                    <th>حالة الاعتراض</th>
+                                    <th>ملاحظة رئيس مجلس الهيئة</th>
+                                    <th>معالجة الاعتراض</th>
+                                </tr>
+                            </thead>
+                            <tbody id="objectionsTableBody">
+                                <tr>
+                                    <td class="fw-bold">30117654</td>
+                                    <td>2026-09-16 03:36:42 م</td>
+                                    <td>6688779016</td>
+                                    <td>1111713200</td>
+                                    <td><span class="badge bg-warning text-dark">مرجع إلى الهيئة المرورية</span></td>
+                                    <td class="small text-muted">الرجاء التحقق من بيانات نوع تسجيل المركبة</td>
+                                    <td>
+                                        <button class="btn btn-purple btn-sm" onclick="openDetails('30117654', '6688779016', '1111713200')">
+                                            <i class="fa-solid fa-eye me-1"></i> معالجة
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold">30119754</td>
+                                    <td>2026-09-16 05:39:29 م</td>
+                                    <td>3140556763</td>
+                                    <td>2439889870</td>
+                                    <td><span class="badge bg-warning text-dark">مرجع إلى الهيئة المرورية</span></td>
+                                    <td class="small text-muted">الرجاء التحقق من بيانات لوحة تسجيل المركبة</td>
+                                    <td>
+                                        <button class="btn btn-purple btn-sm" onclick="openDetails('30119754', '3140556763', '2439889870')">
+                                            <i class="fa-solid fa-eye me-1"></i> معالجة
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= VIEW 4: OBJECTION DETAILS & RADAR PROCESSING ================= -->
+        <section id="view-objection-details" class="app-view">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="fw-bold text-purple mb-0"><i class="fa-solid fa-sliders me-2"></i>معالجة تفاصيل الاعتراض</h4>
+                <button class="btn btn-outline-secondary btn-sm" onclick="showView('view-objection-list')">
+                    <i class="fa-solid fa-arrow-right me-1"></i> الرجوع للقائمة
+                </button>
+            </div>
+
+            <div class="row g-3">
+                <!-- Left Column: Radar View and Controls -->
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center py-2">
+                            <span class="fw-bold"><i class="fa-solid fa-camera me-2"></i>صور واستدلالات ساهر / الرادار</span>
+                            <span class="badge bg-danger">سرعة زادت عن الحد</span>
+                        </div>
+                        <div class="card-body p-0">
+                            <!-- Image Display Area -->
+                            <div class="radar-preview-container">
+                                <img id="radarImage" src="https://via.placeholder.com/600x350/111/fff?text=صورة+المخالفة+من+الرادار+(ساهر)" class="img-fluid" style="filter: brightness(100%) contrast(100%);">
+                            </div>
+                            
+                            <!-- Control Toolbar -->
+                            <div class="radar-controls-bar">
+                                <div class="d-flex flex-wrap gap-1 justify-content-center mb-2">
+                                    <button class="radar-tab-btn active" onclick="setRadarImg(1)">صورة المخالفة رقم 1</button>
+                                    <button class="radar-tab-btn" onclick="setRadarImg(2)">صورة المخالفة رقم 2</button>
+                                    <button class="radar-tab-btn" onclick="setRadarImg(3)">صورة السائق</button>
+                                    <button class="radar-tab-btn" onclick="setRadarImg(4)">صورة اللوحة</button>
+                                    <button class="radar-tab-btn" onclick="setRadarImg(5)">فيديو المخالفة</button>
+                                </div>
+                                <div class="row align-items-center g-2 px-3 small">
+                                    <div class="col-md-6">
+                                        <label>السطوع: <span id="brightnessVal">0%</span></label>
+                                        <input type="range" class="form-range" min="50" max="150" value="100" oninput="adjustImgFilter(this.value, 'bright')">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>الانعكاس / التباين: <span id="contrastVal">0%</span></label>
+                                        <input type="range" class="form-range" min="50" max="150" value="100" oninput="adjustImgFilter(this.value, 'contrast')">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Violation Details Card -->
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-white fw-bold text-purple py-3">
+                            <i class="fa-solid fa-circle-info me-2"></i>تفاصيل المخالفة والاعتراض
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-sm table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-muted">وصف المخالفة:</td>
+                                        <td class="fw-bold">تجاوز السرعة المحكورة بأكثر من 10 إلى 20 كم/س - رصد آلي</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">قيمة المخالفة:</td>
+                                        <td class="fw-bold text-danger">150 ريال سعودي</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">رقم هوية المخالف:</td>
+                                        <td class="fw-bold" id="detailId">1111713200</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">رقم المخالفة:</td>
+                                        <td class="fw-bold" id="detailViol">6688779016</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">تاريخ المخالفة:</td>
+                                        <td>2026-09-16 10:41:07 ص</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">رقم الاعتراض:</td>
+                                        <td class="fw-bold text-primary" id="detailObj">30117654</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">المدينة:</td>
+                                        <td>جدة</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">سبب الاعتراض:</td>
+                                        <td>لوحات المركبة مسروقة أو مفقودة</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">ملاحظة الاعتراض:</td>
+                                        <td class="small bg-light p-2 rounded">يرجى ملاحظة أن اللوحة مسروقة وتوجد في سيارة لا تحمل نفس مواصفات أو نوع مركبتي (سبيارتي كيا سونيت)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <hr>
+
+                            <!-- Decision Actions -->
+                            <div class="d-grid gap-2 mt-4">
+                                <button class="btn btn-success py-2 fw-bold" onclick="openAcceptModal()">
+                                    <i class="fa-solid fa-circle-check me-2"></i> الاعتراض صحيح (قبول)
+                                </button>
+                                <button class="btn btn-danger py-2 fw-bold" onclick="openRejectModal()">
+                                    <i class="fa-solid fa-circle-xmark me-2"></i> الاعتراض غير صحيح (رفض)
+                                </button>
+                                <button class="btn btn-outline-purple py-2 fw-bold" onclick="alert('تم حفظ تعديل الاعتراض بنجاح')">
+                                    <i class="fa-solid fa-pen-to-square me-2"></i> تعديل الاعتراض
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= VIEW 5: PUBLIC CITIZEN OBJECTION FORM ================= -->
+        <section id="view-citizen-form" class="app-view">
+            <div class="citizen-form-container max-width-1100 mx-auto">
+                <!-- Header Stats -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="text-muted small">عدد الاعتراضات</div>
+                            <div class="fs-4 fw-bold text-purple">120</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="text-muted small">المرفوضة</div>
+                            <div class="fs-4 fw-bold text-danger">52</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="text-muted small">تحت الإجراء</div>
+                            <div class="fs-4 fw-bold text-warning">28</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="text-muted small">متوسط زمن المعالجة</div>
+                            <div class="fs-4 fw-bold text-success">3.2 يوم</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- QR Sidebar -->
+                    <div class="col-lg-3 border-end">
+                        <div class="text-center p-2">
+                            <h6 class="fw-bold text-purple">الدخول عبر الباركود للمواطن</h6>
+                            <div id="qrcode" class="d-flex justify-content-center my-3"></div>
+                            <p class="small text-muted">امسح رمز الباركود لفتح نموذج الاعتراض على المخالفات المرورية</p>
+
+                            <hr>
+                            <label class="form-label small fw-bold">إدخال رقم المخالفة للفتح السريع</label>
+                            <input type="text" class="form-control form-control-sm mb-2 text-center" placeholder="أدخل رقم المخالفة">
+                            <button class="btn btn-purple btn-sm w-100" onclick="alert('جاري استعلام بيانات المخالفة...')">فتح النموذج</button>
+                        </div>
+                    </div>
+
+                    <!-- Main Form -->
+                    <div class="col-lg-9">
+                        <h5 class="fw-bold text-purple mb-1">المادة الخامسة والسبعون من نظام المرور</h5>
+                        <p class="small text-muted mb-3">للمخالف حق الاعتراض أمام المحكمة المختصة استناداً للمادة (75) من نظام المرور الصادر بالمرسوم الملكي رقم (م/85)</p>
+
+                        <form onsubmit="handleCitizenSubmit(event)">
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">الاسم الكامل *</label>
+                                    <input type="text" class="form-control form-control-sm" required placeholder="أدخل الاسم الكامل">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">رقم الهوية / الإقامة *</label>
+                                    <input type="text" class="form-control form-control-sm" required placeholder="أدخل رقم الهوية">
+                                </div>
+                            </div>
+
+                            <!-- Violation Data Grid -->
+                            <h6 class="fw-bold text-purple mt-3 mb-2">بيانات المخالفة</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered text-center align-middle">
+                                    <thead class="table-light small">
+                                        <tr>
+                                            <th>م</th>
+                                            <th>رقم المخالفة *</th>
+                                            <th>نوع المخالفة *</th>
+                                            <th>تاريخ المخالفة *</th>
+                                            <th>موقع المخالفة</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><input type="text" class="form-control form-control-sm" placeholder="رقم المخالفة"></td>
+                                            <td>
+                                                <select class="form-select form-select-sm">
+                                                    <option>تجاوز سرعة</option>
+                                                    <option>قطع إشارة</option>
+                                                    <option>استخدام الجوال</option>
+                                                </select>
+                                            </td>
+                                            <td><input type="date" class="form-control form-control-sm"></td>
+                                            <td><input type="text" class="form-control form-control-sm" placeholder="الموقع"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">رقم اللوحة *</label>
+                                    <input type="text" class="form-control form-control-sm" placeholder="أدخل رقم اللوحة">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">نوع المركبة</label>
+                                    <input type="text" class="form-control form-control-sm" placeholder="نوع المركبة">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">سبب الاعتراض والشرح *</label>
+                                <textarea class="form-control form-control-sm" rows="3" placeholder="أدخل سبب الاعتراض والتفاصيل..." required></textarea>
+                            </div>
+
+                            <!-- Digital Signature Pad -->
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">التوقيع الإلكتروني *</label>
+                                <canvas id="signaturePad" class="signature-pad"></canvas>
+                                <div class="d-flex justify-content-end gap-2 mt-1">
+                                    <button type="button" class="btn btn-light btn-sm border" onclick="clearSignature()">مسح التوقيع</button>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-purple w-100 fw-bold py-2">إرسال طلب الاعتراض الإلكتروني</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ================= MODALS (POPUP WINDOWS) ================= -->
+
+    <!-- Modal 1: Accept Reason Dialog -->
+    <div class="modal fade" id="acceptReasonModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-header-custom modal-title fw-bold text-success"><i class="fa-solid fa-circle-check me-2"></i>سبب قبول الاعتراض</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label class="form-label fw-semibold">يرجى اختيار السبب النظامي للقبول:</label>
+                    <select class="form-select mb-3" id="acceptReasonSelect">
+                        <option selected disabled>يرجى اختيار السبب...</option>
+                        <option>المخالفة المحررة مكررة</option>
+                        <option>المركبة جديدة غير ملزمة بإجراء الفحص الفني لعدم مضي المدة المقررة من الترخيص لها بالسير لأول مرة</option>
+                        <option>المركبة مستثناة من التقيد بنظام المرور بناء على الفقرة 8/54 من اللائحة التنفيذية لنظام المرور (مثل مركبات الطوارئ)</option>
+                        <option>المركبة تحمل لوحات جمركية أو مؤقتة نظامية</option>
+                        <option>المركبة في حالة وقوف تام</option>
+                        <option>أنوار المركبة تعمل حسب المشاهدة</option>
+                        <option>أنوار المركبة يوجد بها عطل</option>
+                        <option>التقاط الصور بواسطة جهاز آخر</option>
+                        <option>تحويل المخالفة لمرتكبها</option>
+                        <option>تعذر إثبات المخالفة لعدم وضوح الصور المرفقة في النظام</option>
+                        <option>تم رصد المخالفة والمركبة في حالة سير</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-success" onclick="confirmDecision('قبول')">تأكيد القبول</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Reject Reason Dialog -->
+    <div class="modal fade" id="rejectReasonModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title fw-bold text-danger"><i class="fa-solid fa-circle-xmark me-2"></i>سبب رفض الاعتراض</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <label class="form-label fw-semibold">يرجى اختيار السبب النظامي للرفض:</label>
+                    <select class="form-select mb-3" id="rejectReasonSelect">
+                        <option selected disabled>يرجى اختيار السبب...</option>
+                        <option>الفيديو أو الصور أثبتت تجاوز المركبة للإشارة الضوئية أثناء الضوء الأحمر</option>
+                        <option>ثبوت تجاوز مقدار السرعة المحكورة على الطريق بالمقدار المنصوص عليه بالمخالفة</option>
+                        <option>الصور المرفقة بالنظام تثبت صحة المخالفة المحررة</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-danger" onclick="confirmDecision('رفض')">تأكيد الرفض</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // App State
+        let currentRole = 'موظف هيئة';
+
+        // Initialize App on DOM Load
+        document.addEventListener("DOMContentLoaded", function() {
+            generateCaptcha();
+            initQRCode();
+            initSignaturePad();
+        });
+
+        // Switch Views Function
+        function showView(viewId) {
+            document.querySelectorAll('.app-view').forEach(view => {
+                view.classList.remove('active');
+            });
+            document.getElementById(viewId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Handle Role Toggle
+        function switchRoleView() {
+            if (currentRole === 'موظف هيئة') {
+                currentRole = 'مواطن';
+                document.getElementById('currentUserName').innerText = 'مواطن / زائر';
+                showView('view-citizen-form');
+            } else {
+                currentRole = 'موظف هيئة';
+                document.getElementById('currentUserName').innerText = 'وكيل رقيب / عادل ب...';
+                showView('view-portal');
+            }
+        }
+
+        // Login Handler
+        function handleLogin(event) {
+            event.preventDefault();
+            const id = document.getElementById('loginId').value;
+            document.getElementById('currentUserName').innerText = 'الموظف (' + id + ')';
+            currentRole = 'موظف هيئة';
+            showView('view-portal');
+        }
+
+        // Captcha Generator
+        function generateCaptcha() {
+            const code = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('captchaCode').innerText = code;
+        }
+
+        // QR Code Generator
+        function initQRCode() {
+            const qrContainer = document.getElementById("qrcode");
+            if (qrContainer) {
+                qrContainer.innerHTML = "";
+                new QRCode(qrContainer, {
+                    text: window.location.href,
+                    width: 120,
+                    height: 120
+                });
+            }
+        }
+
+        // Open Objection Details
+        function openDetails(objId, violId, citizenId) {
+            document.getElementById('detailObj').innerText = objId;
+            document.getElementById('detailViol').innerText = violId;
+            document.getElementById('detailId').innerText = citizenId;
+            showView('view-objection-details');
+        }
+
+        // Image Controls
+        function setRadarImg(type) {
+            const img = document.getElementById('radarImage');
+            document.querySelectorAll('.radar-tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            if (type === 1) img.src = "https://via.placeholder.com/600x350/111/fff?text=صورة+المخالفة+رقم+1";
+            else if (type === 2) img.src = "https://via.placeholder.com/600x350/222/fff?text=صورة+المخالفة+رقم+2";
+            else if (type === 3) img.src = "https://via.placeholder.com/600x350/333/fff?text=صورة+وجه+السائق";
+            else if (type === 4) img.src = "https://via.placeholder.com/600x350/444/fff?text=صورة+لوحة+المركبة";
+            else alert("جاري تحميل مقطع الفيديو الخاص بالرصد الآلي...");
+        }
+
+        function adjustImgFilter(val, type) {
+            const img = document.getElementById('radarImage');
+            if (type === 'bright') {
+                document.getElementById('brightnessVal').innerText = (val - 100) + '%';
+            } else {
+                document.getElementById('contrastVal').innerText = (val - 100) + '%';
+            }
+        }
+
+        // Decision Modals
+        function openAcceptModal() {
+            const modal = new bootstrap.Modal(document.getElementById('acceptReasonModal'));
+            modal.show();
+        }
+
+        function openRejectModal() {
+            const modal = new bootstrap.Modal(document.getElementById('rejectReasonModal'));
+            modal.show();
+        }
+
+        function confirmDecision(type) {
+            alert('تم تسجيل القرار (' + type + ') بنجاح وإرسال الإشعار إلكترونياً.');
+            bootstrap.Modal.getInstance(document.getElementById('acceptReasonModal'))?.hide();
+            bootstrap.Modal.getInstance(document.getElementById('rejectReasonModal'))?.hide();
+            showView('view-objection-list');
+        }
+
+        // Signature Canvas
+        let isDrawing = false;
+        let canvas, ctx;
+
+        function initSignaturePad() {
+            canvas = document.getElementById('signaturePad');
+            if (!canvas) return;
+            ctx = canvas.getContext('2d');
+
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+
+            // Touch events for mobile
+            canvas.addEventListener('touchstart', startDrawing);
+            canvas.addEventListener('touchmove', draw);
+            canvas.addEventListener('touchend', stopDrawing);
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            draw(e);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#5C1D4A';
+
+            const rect = canvas.getBoundingClientRect();
+            const x = (e.clientX || e.touches[0].clientX) - rect.left;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top;
+
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            ctx.beginPath();
+        }
+
+        function clearSignature() {
+            if (ctx && canvas) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        function handleCitizenSubmit(e) {
+            e.preventDefault();
+            alert('تم تقديم طلب الاعتراض بنجاح! رقم المرجعية الخاص بك: ' + Math.floor(10000000 + Math.random() * 90000000));
+        }
+
+        function filterTable() {
+            alert('جاري التصفية بحسب البيانات المحددة...');
+        }
+
+        function resetTable() {
+            document.getElementById('searchObjectionId').value = '';
+            document.getElementById('searchViolationId').value = '';
+        }
+    </script>
+</body>
+</html>
