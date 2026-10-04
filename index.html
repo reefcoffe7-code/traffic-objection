@@ -3,329 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نموذج اعتراض على مخالفة مرورية - المادة 75</title>
+    <title>مذكرة اعتراض - الهيئة المرورية بمحافظة الطائف</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #1a4d2e;
-            --secondary-color: #e8f5e9;
-            --accent-color: #d4af37;
-            --border-color: #a3b18a;
-            --text-color: #1c2520;
+            --border-color: #000000;
             --bg-color: #f8f9fa;
         }
 
         * {
             box-sizing: border-box;
-            font-family: 'Cairo', 'Amiri', serif;
+            font-family: 'Amiri', 'Cairo', serif;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: #000;
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             direction: rtl;
         }
 
-        .container {
-            max-width: 900px;
+        .paper-container {
+            max-width: 850px;
             margin: 0 auto;
             background: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border: 2px solid var(--primary-color);
+            padding: 25px 30px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* الهيدر والمادة 75 */
-        .article-75-header {
-            background-color: var(--secondary-color);
-            border: 2px dashed var(--primary-color);
-            border-radius: 6px;
-            padding: 15px 20px;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .article-75-title {
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .article-75-text {
-            font-size: 0.95rem;
-            color: #2d3748;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .form-header {
-            text-align: center;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-        }
-
-        .form-header h2 {
-            margin: 0;
-            color: var(--primary-color);
-            font-size: 1.6rem;
-        }
-
-        /* تنسيقات الأقسام والحقول */
-        .section-title {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 8px 15px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        .form-group {
-            flex: 1;
-            min-width: 220px;
-        }
-
-        .form-group.full-width {
-            flex: 100%;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 1rem;
-            background-color: #fff;
-            transition: border-color 0.2s;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(26, 77, 46, 0.2);
-        }
-
-        /* كارت المخالفة */
-        .violation-card {
-            background: #fafafa;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 15px;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        .violation-header {
+        /* الهيدر الرسمي للمستند */
+        .official-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 12px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 5px;
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        /* زر الإضافة مباشرة أسفل المخالفة الأولى */
-        .add-violation-container {
-            margin-top: 10px;
-            margin-bottom: 25px;
-            text-align: right;
+        .header-col {
+            flex: 1;
+            font-size: 0.95rem;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        .bismillah {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* المادة الخامسة والسبعون */
+        .article-box {
+            border: 1px solid #000;
+            padding: 8px 12px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            text-align: justify;
+            margin-bottom: 15px;
+            background-color: #fcfcfc;
+        }
+
+        .doc-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* الجداول والحقول */
+        table.form-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 5px;
+        }
+
+        table.form-table th, 
+        table.form-table td {
+            border: 1px solid #000;
+            padding: 6px 8px;
+            font-size: 0.95rem;
+            vertical-align: middle;
+        }
+
+        table.form-table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .input-inline {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-family: 'Amiri', serif;
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        .section-label {
+            font-weight: bold;
+            background-color: #f0f0f0;
+            width: 18%;
+        }
+
+        /* زر إضافة المخالفات (+) */
+        .add-violation-row {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .btn-add {
             background-color: #2e7d32;
             color: white;
             border: none;
-            padding: 10px 18px;
+            padding: 6px 14px;
             border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: background-color 0.2s;
+            gap: 6px;
         }
 
         .btn-add:hover {
             background-color: #1b5e20;
         }
 
-        .btn-remove {
+        .btn-delete-row {
             background-color: #c62828;
             color: white;
             border: none;
-            padding: 4px 10px;
-            border-radius: 4px;
+            padding: 2px 6px;
+            border-radius: 3px;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
+        }
+
+        /* نص الاعتراض والتوقيع */
+        .appeal-text-box {
+            margin-top: 15px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px dashed #666;
+        }
+
+        .sig-col {
+            flex: 1;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        canvas#signaturePad {
+            border: 1px dashed #000;
+            background: #fff;
+            cursor: crosshair;
+            touch-action: none;
+            width: 260px;
+            height: 90px;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .btn-clear-sig {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .submit-btn-container {
+            text-align: center;
+            margin-top: 25px;
         }
 
         .btn-submit {
             background-color: var(--primary-color);
             color: white;
             border: none;
-            padding: 14px 30px;
+            padding: 10px 35px;
             font-size: 1.1rem;
             font-weight: bold;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
-            width: 100%;
-            margin-top: 25px;
-            transition: background-color 0.2s;
         }
 
         .btn-submit:hover {
-            background-color: #123720;
+            background-color: #11331e;
         }
 
-        /* تحويل الأرقام المكتوبة للأرقام العربية المشرقية */
-        .arabic-num {
-            font-family: 'Amiri', serif;
+        @media print {
+            body { background: white; padding: 0; }
+            .paper-container { border: none; box-shadow: none; width: 100%; }
+            .submit-btn-container, .btn-clear-sig, .add-violation-row, .btn-delete-row { display: none; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    
-    <!-- المادة الخامسة والسبعون من نظام المرور في أعلى الصفحة -->
-    <div class="article-75-header">
-        <div class="article-75-title">المادة الخامسة والسبعون من نظام المرور</div>
-        <p class="article-75-text">
-            يجوز للمخالف الاعتراض على صحة المخالفة أمام المحكمة المختصة، خلال (ثلاثين) يوماً من تاريخ إبلاغه بها، وتحدد اللائحة إجراءات ذلك، ودون إخلال بحق الاعتراض، للمخالف طلب مهلة إضافية للسداد لا تتجاوز (تسعين) يوماً وفق الشوابط المحددة.
-        </p>
+<div class="paper-container">
+
+    <!-- الترويسة الرسمية -->
+    <div class="official-header">
+        <div class="header-col">
+            المملكة العربية السعودية<br>
+            وزارة الداخلية<br>
+            الأمن العام<br>
+            الإدارة العامة للمرور<br>
+            إدارة الهيئات المرورية<br>
+            الهيئة المرورية بمحافظة الطائف
+        </div>
+        <div class="header-col">
+            <div class="bismillah">بسم الله الرحمن الرحيم</div>
+        </div>
+        <div class="header-col" style="text-align: left;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Emblem_of_Saudi_Arabia.svg/200px-Emblem_of_Saudi_Arabia.svg.png" alt="شعار المملكة" style="height: 65px; opacity: 0.8;">
+        </div>
     </div>
 
-    <div class="form-header">
-        <h2>نموذج تقديم اعتراض على المخالفات المرورية</h2>
+    <!-- نص المادة 75 -->
+    <div class="article-box">
+        <strong>(المادة الخامسة والسبعون من نظام المرور)</strong><br>
+        للمخالف حق الاعتراض أمام المحكمة المختصة استناداً للمادة (٧٥) من نظام المرور الصادر بالمرسوم الملكي رقم (م / ٨٥) وتاريخ ١٤٢٨/١٠/٢٦هـ ولا ينظر بالمخالفة التي مضى على تحريرها أكثر من ثلاثون يوماً.
+    </div>
+
+    <!-- عنوان المذكرة والتاريخ -->
+    <div class="doc-title-row">
+        <div>مذكرة اعتراض</div>
+        <div>بتاريخ: <input type="text" class="input-inline arabic-num-input" style="width: 140px; border-bottom: 1px dotted #000;" placeholder="   /   / ١٤٤٨ هـ"></div>
     </div>
 
     <form id="objectionForm">
-        
         <!-- بيانات المعترض -->
-        <div class="section-title">أولاً: بيانات المعترض / مالك المركبة</div>
-        <div class="form-row">
-            <div class="form-group">
-                <label>الاسم الرباعي:</label>
-                <input type="text" required placeholder="أدخل الاسم الكامل">
-            </div>
-            <div class="form-group">
-                <label>رقم الهوية / الإقامة:</label>
-                <input type="text" class="arabic-num-input" required placeholder="مثال: ١٠٢٣٤٥٦٧٨٩">
-            </div>
-            <div class="form-group">
-                <label>رقم الجوال:</label>
-                <input type="text" class="arabic-num-input" required placeholder="مثال: ٠٥٠١٢٣٤٥٦٧">
-            </div>
-        </div>
+        <table class="form-table">
+            <tr>
+                <td class="section-label">الاسم:</td>
+                <td><input type="text" class="input-inline" required></td>
+                <td class="section-label" style="width: 18%;">رقم الهوية / الإقامة:</td>
+                <td><input type="text" class="input-inline arabic-num-input" required></td>
+            </tr>
+        </table>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label>التاريخ الهجري:</label>
-                <input type="text" class="arabic-num-input" required placeholder="مثال: ٢٢/٠٤/١٤٤٨ هـ">
-            </div>
-            <div class="form-group">
-                <label>المدينة / المنطقة:</label>
-                <input type="text" required placeholder="مثال: الرياض / جدة">
-            </div>
-        </div>
+        <!-- جدول المخالفات (مخالفة واحدة افتراضية) -->
+        <table class="form-table" id="violationsTable">
+            <thead>
+                <tr>
+                    <th style="width: 8%;">م</th>
+                    <th>نوع المخالفة</th>
+                    <th>موقع المخالفة</th>
+                    <th>تاريخ المخالفة</th>
+                    <th>رقم المخالفة</th>
+                    <th class="action-header" style="width: 50px;">إجراء</th>
+                </tr>
+            </thead>
+            <tbody id="violationsTbody">
+                <tr>
+                    <td style="text-align: center; font-weight: bold;" class="row-index">١</td>
+                    <td><input type="text" class="input-inline" required placeholder="نوع المخالفة"></td>
+                    <td><input type="text" class="input-inline" placeholder="موقع المخالفة"></td>
+                    <td><input type="text" class="input-inline arabic-num-input" placeholder="تاريخ المخالفة"></td>
+                    <td><input type="text" class="input-inline arabic-num-input" required placeholder="رقم المخالفة"></td>
+                    <td style="text-align: center;">-</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <!-- تفاصيل المخالفة -->
-        <div class="section-title">ثانياً: تفاصيل المخالفة المرورية</div>
-        
-        <div id="violationsContainer">
-            <!-- المخالفة الأولى والوحيدة بشكل افتراضي -->
-            <div class="violation-card" data-index="1">
-                <div class="violation-header">
-                    <span>بيانات المخالفة (١)</span>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>رقم المخالفة:</label>
-                        <input type="text" class="arabic-num-input" required placeholder="أدخل رقم المخالفة">
-                    </div>
-                    <div class="form-group">
-                        <label>تاريخ المخالفة (هجري):</label>
-                        <input type="text" class="arabic-num-input" required placeholder="اليوم/الشهر/السنة الهجرية">
-                    </div>
-                    <div class="form-group">
-                        <label>نوع المخالفة:</label>
-                        <select required>
-                            <option value="">اختر نوع المخالفة...</option>
-                            <option value="تجاوز السرعة (ساهر)">تجاوز السرعة المحددة (ساهر)</option>
-                            <option value="قطع الإشارة الضوئية">قطع الإشارة الضوئية</option>
-                            <option value="استخدام الجوال">استخدام الهاتف المحمول أثناء القيادة</option>
-                            <option value="عدم ربط حزام الأمان">عدم ربط حزام الأمان</option>
-                            <option value="وقوف خاطئ">الوقوف الخاطئ / الممنوع</option>
-                            <option value="أخرى">مخالفة أخرى</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group full-width">
-                        <label>سبب الاعتراض التفصيلي:</label>
-                        <textarea rows="3" required placeholder="اذكر أسباب اعتراضك بالتفصيل..."></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- زر إضافة مخالفة أخرى مباشرة أسفل المخالفة الأولى -->
-        <div class="add-violation-container">
+        <!-- زر (+) إضافة مخالفة مباشرة أسفل الجدول -->
+        <div class="add-violation-row">
             <button type="button" class="btn-add" id="addViolationBtn">
                 <span>+</span> إضافة مخالفة أخرى
             </button>
-        </div>
-
-        <!-- المرفقات والملاحظات -->
-        <div class="section-title">ثالثاً: المرفقات والإقرار</div>
-        <div class="form-row">
-            <div class="form-group full-width">
-                <label>إرفاق إثباتات أو صور (إن وجدت):</label>
-                <input type="file" multiple accept="image/*,.pdf">
-            </div>
-        </div>
-
-        <div class="form-group full-width" style="margin-top: 15px;">
-            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                <input type="checkbox" required>
-                أقر بصحة البيانات والمستندات المقدمة وأنني أعلم بالآثار النظامية للتقديم وفق المادة ٧٥ من نظام المرور.
+            <label style="cursor: pointer; font-size: 0.9rem;">
+                <input type="checkbox"> أسباب / مخالفات أخرى خلف الورقة.
             </label>
         </div>
 
-        <button type="submit" class="btn-submit">إرسال طلب الاعتراض</button>
+        <!-- بيانات المركبة -->
+        <table class="form-table">
+            <tr>
+                <td class="section-label" rowspan="2">بيانات المركبة</td>
+                <td style="width: 15%; font-weight: bold;">نوع المركبة:</td>
+                <td><input type="text" class="input-inline"></td>
+                <td style="width: 12%; font-weight: bold;">رقم اللوحة:</td>
+                <td><input type="text" class="input-inline arabic-num-input"></td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">رقم القرار الإلكتروني:</td>
+                <td><input type="text" class="input-inline arabic-num-input"></td>
+                <td style="font-weight: bold;">التاريخ:</td>
+                <td><input type="text" class="input-inline arabic-num-input"></td>
+            </tr>
+        </table>
 
+        <!-- حالة إسعافية طارئة -->
+        <table class="form-table">
+            <tr>
+                <td style="width: 25%; font-weight: bold;">
+                    <label style="cursor: pointer;">
+                        <input type="checkbox"> حالة إسعافية طارئة
+                    </label>
+                </td>
+                <td style="width: 12%; font-weight: bold;">اسم المستشفى:</td>
+                <td><input type="text" class="input-inline"></td>
+                <td style="width: 10%; font-weight: bold;">التاريخ:</td>
+                <td><input type="text" class="input-inline arabic-num-input"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="font-weight: bold;">اسم المريض:</td>
+                <td><input type="text" class="input-inline"></td>
+                <td style="font-weight: bold;">رقم السجل:</td>
+                <td><input type="text" class="input-inline arabic-num-input"></td>
+            </tr>
+        </table>
+
+        <!-- نص الاعتراض -->
+        <div class="appeal-text-box">
+            <strong>سعادة رئيس الهيئة المرورية بمحافظة الطائف :</strong><br>
+            السلام عليكم ورحمة الله وبركاته : أتقدم إليكم بالاعتراض على المخالفة المذكورة بسبب:
+            <textarea class="input-inline" rows="3" style="border: 1px solid #000; padding: 8px; margin-top: 5px; width: 100%;" required placeholder="اكتب تفاصيل سبب الاعتراض هنا..."></textarea>
+        </div>
+
+        <!-- التوقيع والبيانات الشخصية للمواطن -->
+        <div class="signature-section">
+            <div class="sig-col">
+                <div>الاسم: <input type="text" class="input-inline" style="width: 70%; border-bottom: 1px dotted #000;" required></div>
+                <div style="margin-top: 10px;">رقم الجوال: <input type="text" class="input-inline arabic-num-input" style="width: 65%; border-bottom: 1px dotted #000;" required></div>
+            </div>
+            <div class="sig-col" style="text-align: left;">
+                <div>التوقيع الإلكتروني:</div>
+                <canvas id="signaturePad" width="260" height="90"></canvas>
+                <button type="button" class="btn-clear-sig" onclick="clearSignature()">مسح التوقيع</button>
+            </div>
+        </div>
+
+        <div class="submit-btn-container">
+            <button type="submit" class="btn-submit">حفظ وإرسال الاعتراض</button>
+        </div>
     </form>
+
 </div>
 
 <script>
-    // تحويل الأرقام الإنجليزية إلى أرقام عربية مشرقية أثناء الكتابة
+    // تحويل الأرقام إلى أرقام عربية مشرقية
     const toArabicDigits = (str) => {
         return str.replace(/[0-9]/g, w => ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'][parseInt(w)]);
     };
@@ -336,64 +375,99 @@
         }
     });
 
-    let violationCount = 1;
+    // إضافة مخالفة جديدة عند الضغط على +
+    let rowCount = 1;
 
-    // إضافة مخالفة جديدة تحت الأولى عند الضغط على +
     document.getElementById('addViolationBtn').addEventListener('click', function() {
-        violationCount++;
-        const arabicIndex = toArabicDigits(violationCount.toString());
-        
-        const container = document.getElementById('violationsContainer');
-        const card = document.createElement('div');
-        card.className = 'violation-card';
-        card.setAttribute('data-index', violationCount);
-        
-        card.innerHTML = `
-            <div class="violation-header">
-                <span>بيانات المخالفة (${arabicIndex})</span>
-                <button type="button" class="btn-remove" onclick="removeViolation(this)">حذف المخالفة</button>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>رقم المخالفة:</label>
-                    <input type="text" class="arabic-num-input" required placeholder="أدخل رقم المخالفة">
-                </div>
-                <div class="form-group">
-                    <label>تاريخ المخالفة (هجري):</label>
-                    <input type="text" class="arabic-num-input" required placeholder="اليوم/الشهر/السنة الهجرية">
-                </div>
-                <div class="form-group">
-                    <label>نوع المخالفة:</label>
-                    <select required>
-                        <option value="">اختر نوع المخالفة...</option>
-                        <option value="تجاوز السرعة (ساهر)">تجاوز السرعة المحددة (ساهر)</option>
-                        <option value="قطع الإشارة الضوئية">قطع الإشارة الضوئية</option>
-                        <option value="استخدام الجوال">استخدام الهاتف المحمول أثناء القيادة</option>
-                        <option value="عدم ربط حزام الأمان">عدم ربط حزام الأمان</option>
-                        <option value="وقوف خاطئ">الوقوف الخاطئ / الممنوع</option>
-                        <option value="أخرى">مخالفة أخرى</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group full-width">
-                    <label>سبب الاعتراض التفصيلي:</label>
-                    <textarea rows="3" required placeholder="اذكر أسباب اعتراضك بالتفصيل..."></textarea>
-                </div>
-            </div>
+        rowCount++;
+        const tbody = document.getElementById('violationsTbody');
+        const tr = document.createElement('tr');
+        const arabicIdx = toArabicDigits(rowCount.toString());
+
+        tr.innerHTML = `
+            <td style="text-align: center; font-weight: bold;" class="row-index">${arabicIdx}</td>
+            <td><input type="text" class="input-inline" required placeholder="نوع المخالفة"></td>
+            <td><input type="text" class="input-inline" placeholder="موقع المخالفة"></td>
+            <td><input type="text" class="input-inline arabic-num-input" placeholder="تاريخ المخالفة"></td>
+            <td><input type="text" class="input-inline arabic-num-input" required placeholder="رقم المخالفة"></td>
+            <td style="text-align: center;">
+                <button type="button" class="btn-delete-row" onclick="removeRow(this)">حذف</button>
+            </td>
         `;
-        
-        container.appendChild(card);
+        tbody.appendChild(tr);
     });
 
-    function removeViolation(btn) {
-        const card = btn.closest('.violation-card');
-        card.remove();
+    function removeRow(btn) {
+        const tr = btn.closest('tr');
+        tr.remove();
+        updateRowNumbers();
+    }
+
+    function updateRowNumbers() {
+        const rows = document.querySelectorAll('#violationsTbody tr');
+        rowCount = rows.length;
+        rows.forEach((row, index) => {
+            const idxTd = row.querySelector('.row-index');
+            if (idxTd) {
+                idxTd.textContent = toArabicDigits((index + 1).toString());
+            }
+        });
+    }
+
+    // رسم التوقيع الإلكتروني
+    const canvas = document.getElementById('signaturePad');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let hasSignature = false;
+
+    ctx.strokeStyle = '#000080';
+    ctx.lineWidth = 2;
+
+    function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return { x: clientX - rect.left, y: clientY - rect.top };
+    }
+
+    function startDrawing(e) {
+        isDrawing = true;
+        hasSignature = true;
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+        const pos = getPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+    }
+
+    function stopDrawing() { isDrawing = false; }
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseleave', stopDrawing);
+
+    canvas.addEventListener('touchstart', startDrawing);
+    canvas.addEventListener('touchmove', draw);
+    canvas.addEventListener('touchend', stopDrawing);
+
+    function clearSignature() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        hasSignature = false;
     }
 
     document.getElementById('objectionForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        alert('تم تقديم طلب الاعتراض بنجاح برقم قيد مجمع.');
+        if(!hasSignature) {
+            alert('يرجى وضع التوقيع الإلكتروني أولاً.');
+            return;
+        }
+        alert('تم تقديم الاعتراض بنجاح.');
     });
 </script>
 
